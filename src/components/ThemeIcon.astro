@@ -36,7 +36,7 @@
   }
 </style>
 
-<script type="module">
+<script is:inline>
   const theme = (() => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");

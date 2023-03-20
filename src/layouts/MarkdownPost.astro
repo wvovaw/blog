@@ -1,39 +1,22 @@
 ---
 import Default from "./Default.astro";
+import Tags from "../components/Tags.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<Default pageTitle={frontmatter.title}>
+<Default pageTitle={'📖 ' + frontmatter.title}>
   <p>{frontmatter.pubDate.slice(0, 10)}</p>
   <p><em>{frontmatter.description}</em></p>
   <p>Author: {frontmatter.author}</p>
   <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
   <div class="tags">
-    {
-      frontmatter.tags.map((tag: any) => (
-        <p class="tag">
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
-      ))
-    }
+    <Tags tags={frontmatter.tags} />
   </div>
   <slot />
 </Default>
-<style>
-  a {
-    color: #00539f;
-  }
 
+<style lang="scss">
   .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5em;
-    margin: 1em auto;
-  }
-
-  .tag {
-    padding: 0.25em 0.5em;
-    font-size: 1.15em;
-    background-color: #83cee1;
+    margin: 2em 0;
   }
 </style>

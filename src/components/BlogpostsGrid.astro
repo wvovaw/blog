@@ -1,0 +1,42 @@
+---
+import type { MarkdownInstance } from "astro";
+import BlogpostCard from "../components/BlogpostCard.astro";
+
+interface Props {
+  posts: MarkdownInstance<Record<string, any>>[];
+}
+const { posts } = Astro.props;
+---
+
+<ul class="grid">
+  {
+    posts.map((post) => (
+      <li class="grid__item">
+        <BlogpostCard
+          title={post.frontmatter.title}
+          description={post.frontmatter.description}
+          image={post.frontmatter.image}
+          date={post.frontmatter.pubDate}
+          href={post.url as string}
+        />
+      </li>
+    ))
+  }
+</ul>
+<style lang="scss">
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (min-width: 636px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+</style>
