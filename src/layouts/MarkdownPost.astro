@@ -1,0 +1,39 @@
+---
+import Default from "./Default.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Default pageTitle={frontmatter.title}>
+  <p>{frontmatter.pubDate.slice(0, 10)}</p>
+  <p><em>{frontmatter.description}</em></p>
+  <p>Author: {frontmatter.author}</p>
+  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+  <div class="tags">
+    {
+      frontmatter.tags.map((tag: any) => (
+        <p class="tag">
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </p>
+      ))
+    }
+  </div>
+  <slot />
+</Default>
+<style>
+  a {
+    color: #00539f;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    margin: 1em auto;
+  }
+
+  .tag {
+    padding: 0.25em 0.5em;
+    font-size: 1.15em;
+    background-color: #83cee1;
+  }
+</style>
