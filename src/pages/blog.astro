@@ -7,7 +7,6 @@ const pageTitle = "📑 Blog posts";
 ---
 
 <Default pageTitle={pageTitle}>
-  <p>This is where I will post about my journey learning Astro.</p>
   <ul class="grid">
     {
       allPosts.map((post) => (
@@ -17,6 +16,7 @@ const pageTitle = "📑 Blog posts";
             description={post.frontmatter.description}
             image={post.frontmatter.image}
             date={post.frontmatter.pubDate}
+            tags={post.frontmatter.tags}
             href={post.url as string}
           />
         </li>

@@ -1,5 +1,4 @@
 ---
-import BlogPostLink from "../../components/BlogPostLink.astro";
 import Default from "../../layouts/Default.astro";
 
 export async function getStaticPaths() {
@@ -26,10 +25,6 @@ const { posts } = Astro.props;
 <Default pageTitle={tag}>
   <p>Posts tagged with {tag}</p>
   <ul>
-    {
-      posts.map((post: any) => (
-        <BlogPostLink url={post.url} title={post.frontmatter.title} />
-      ))
-    }
+    {posts.map((post: any) => <a href={post.url}>{post.frontmatter.title}</a>)}
   </ul>
 </Default>

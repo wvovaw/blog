@@ -8,34 +8,44 @@ interface Props {
     url: string;
     alt: string;
   };
+  tags: string[];
 }
 
 const { title, description, date, href, image } = Astro.props;
 ---
 
-<a href={href}>
-  <div class="card">
-    <figure class="card__image">
-      <img src={image.url} alt={image.alt} width={400} loading="lazy" />
-    </figure>
-    <section class="card__content">
+<div class="card">
+  <figure class="card__image">
+    <img src={image.url} alt={image.alt} width={400} loading="lazy" />
+  </figure>
+  <section class="card__content">
+    <a href={href}>
       <h5 class="card__title">{title}</h5>
-      <span class="card__description">{description}</span>
-    </section>
-  </div>
-</a>
+    </a>
+    <div class="card__date">{new Date(date).toDateString()}</div>
+    <span class="card__description">{description}</span>
+  </section>
+</div>
 
 <style lang="scss">
   .card {
-    // border: 2px dashed var(--fg-dark);
     margin: 2em 0;
     width: 320px;
     height: 400px;
     margin-inline: auto;
     background: hsl(var(--bg-dark-hsl), 0.15);
 
+    transition: box-shadow 200ms ease-in, transform 200ms ease-in;
+
     :global(.dark) & {
       background: hsl(var(--bg-light-hsl), 0.035);
+    }
+
+    &:hover,
+    &:focus {
+      // box-shadow: 5px 0px 0px 1px var(--primary);
+      box-shadow: 5px 5px 0px 1px var(--primary);
+      transform: translateX(-2px) translateY(-2px);
     }
 
     &__image {
@@ -57,7 +67,12 @@ const { title, description, date, href, image } = Astro.props;
         size: 1.5em;
         weight: 700;
       }
-      margin: 0.5em 0;
+
+      &:hover {
+        text: {
+          decoration: underline;
+        }
+      }
     }
 
     &__description {
@@ -65,7 +80,18 @@ const { title, description, date, href, image } = Astro.props;
         size: 0.85em;
         weight: 50;
       }
+      text-overflow: ellipsis;
       margin: 0.5em 0;
+    }
+
+    &__date {
+      color: hsl(var(--fg-dark-hsl), 0.5);
+      margin: 0.2em 0;
+
+      font: {
+        style: italic;
+        size: 0.85em;
+      }
     }
   }
 </style>
