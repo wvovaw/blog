@@ -84,7 +84,9 @@ const { title, description, date, href, image } = Astro.props;
     }
 
     &__date {
-      color: hsl(var(--fg-dark-hsl), 0.5);
+      :global(.dark) & {
+        color: hsl(var(--fg-dark-hsl), 0.5);
+      }
       margin: 0.2em 0;
 
       font: {
