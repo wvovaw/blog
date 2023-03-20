@@ -1,12 +1,16 @@
 ---
 import Default from "../layouts/Default.astro";
-import Greeting from "../components/Greeting.vue";
-
-const pageTitle = "Home page";
-const greetings = ["Hello", "Привет", "Salam", "Salut", "Vitam"];
+const pageTitle = "🏠 Home page";
 ---
 
 <Default pageTitle={pageTitle}>
-  <h2>This is my blog subsite</h2>
-  <Greeting messages={greetings} client:load />
+  <main>
+    <h2>This is my blog subsite</h2>
+    <p>It also has some other standalone pages with different content that I found interesting. Have fun 🫰</p>
+  </main>
 </Default>
+
+<style lang="scss">
+  main {
+  }
+</style>

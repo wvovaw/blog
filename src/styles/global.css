@@ -1,9 +1,18 @@
 :root {
-  --primary: #1dc149;
-  --bg-light: #f3f3f3;
-  --fg-light: #0e0e0e;
-  --bg-dark: #171717;
-  --fg-dark: #f0f0f0;
+  --primary: hsl(136, 74%, 44%);
+  --primary-hsl: 136, 74%, 44%;
+
+  --bg-light: hsl(0, 0%, 95%);
+  --bg-light-hsl: 0, 0%, 95%;
+
+  --fg-light: hsl(0, 0%, 5%);
+  --fg-light-hsl: 0, 0%, 5%;
+
+  --bg-dark: hsl(0, 0%, 9%);
+  --bg-dark-hsl: 0, 0%, 9%;
+
+  --fg-dark: hsl(0, 0%, 94%);
+  --fg-dark-hsl: 0, 0%, 94%;
 }
 
 html {
@@ -11,6 +20,9 @@ html {
   color: var(--fg-light);
   font-family: sans-serif;
   cursor: crosshair;
+}
+::selection {
+  background: hsl(var(--primary-hsl), 0.3);
 }
 
 html.dark {
@@ -32,7 +44,15 @@ body {
 
 h1 {
   margin: 1rem 0;
-  font-size: 2.5rem;
+  font-size: 3rem;
+}
+h2 {
+  margin: 1rem 0;
+  font-size: 1.8rem;
+}
+h3 {
+  margin: 1rem 0;
+  font-size: 1.2rem;
 }
 
 a:hover,

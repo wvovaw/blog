@@ -1,14 +1,28 @@
 ---
 import Default from "../layouts/Default.astro";
-import BlogPostLink from "../components/BlogPostLink.astro";
+import BlogpostCard from "../components/BlogpostCard.astro";
 
-const allPosts = await Astro.glob('./blogposts/*.md');
-const pageTitle = "Blog posts";
+const allPosts = await Astro.glob("./blogposts/*.md");
+const pageTitle = "📑 Blog posts";
 ---
 
 <Default pageTitle={pageTitle}>
   <p>This is where I will post about my journey learning Astro.</p>
-  <ul>
-    {allPosts.map(post => <BlogPostLink title={post.frontmatter.title} url={post.url} />)}
+  <ul class="grid">
+    {
+      allPosts.map((post) => (
+        <li class="grid__item">
+          <!-- <a href={post.url}>{post.frontmatter.title}</a> -->
+          <BlogpostCard title={post.frontmatter.title} description={post.frontmatter.description} image={post.frontmatter.image} />
+        </li>
+      ))
+    }
   </ul>
 </Default>
+
+<style lang="scss">
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+</style>
