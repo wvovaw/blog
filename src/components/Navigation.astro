@@ -1,9 +1,104 @@
 ---
+// @ts-ignore
+import { Icon } from "astro-iconify";
+
+const currentPath = Astro.url.pathname;
+const menu = [
+  { href: "/about/", title: "About me" },
+  { href: "/blog/", title: "Blog" },
+  { href: "/music/", title: "Music" },
+];
 ---
 
-<div class="nav-links">
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
-  <a href="/tags/">Tags</a>
+<div class="nav">
+  <a class="nav__link--iconed" href="/">
+    <Icon size={48} name="fluent-emoji-flat:bug" />
+  </a>
+  {
+    menu.map((link) => (
+      <a
+        class={
+          currentPath === link.href
+            ? "nav__link nav__link--active"
+            : "nav__link"
+        }
+        href={link.href}
+      >
+        {link.title}
+      </a>
+    ))
+  }
 </div>
+<style lang="scss">
+  .nav {
+    width: 100%;
+    top: 5rem;
+    left: 48px;
+    display: none;
+    margin: 2rem 0;
+
+    &__link {
+      display: block;
+      padding: 18px 0;
+      text-decoration: none;
+
+      font: {
+        size: 1.2rem;
+        weight: bold;
+      }
+      text: {
+        align: center;
+        transform: uppercase;
+      }
+
+      &--active {
+        text: {
+          decoration-line: underline;
+          decoration-style: wavy;
+          decoration-thickness: 0.18em;
+          decoration-color: var(--primary);
+        }
+      }
+
+      &--iconed {
+        display: flex;
+        justify-content: center;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: var(--primary);
+      }
+    }
+  }
+
+  .dark {
+    .nav {
+      &__link {
+        color: var(--fg-dark);
+      }
+    }
+  }
+  .expanded {
+    display: unset;
+  }
+
+  @media screen and (min-width: 636px) {
+    .nav {
+      display: flex;
+      position: static;
+      width: auto;
+      background: none;
+
+      &__link {
+        display: inline-block;
+        padding: 15px 20px;
+
+        &--iconed {
+          display: inline-block;
+          padding: 0 1em;
+        }
+      }
+    }
+  }
+</style>

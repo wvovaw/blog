@@ -1,5 +1,5 @@
 ---
-import BlogPost from "../../components/BlogPost.astro";
+import BlogPostLink from "../../components/BlogPostLink.astro";
 import Default from "../../layouts/Default.astro";
 
 export async function getStaticPaths() {
@@ -28,7 +28,7 @@ const { posts } = Astro.props;
   <ul>
     {
       posts.map((post: any) => (
-        <BlogPost url={post.url} title={post.frontmatter.title} />
+        <BlogPostLink url={post.url} title={post.frontmatter.title} />
       ))
     }
   </ul>
