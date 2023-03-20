@@ -12,8 +12,13 @@ const pageTitle = "📑 Blog posts";
     {
       allPosts.map((post) => (
         <li class="grid__item">
-          <!-- <a href={post.url}>{post.frontmatter.title}</a> -->
-          <BlogpostCard title={post.frontmatter.title} description={post.frontmatter.description} image={post.frontmatter.image} />
+          <BlogpostCard
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            image={post.frontmatter.image}
+            date={post.frontmatter.pubDate}
+            href={post.url as string}
+          />
         </li>
       ))
     }

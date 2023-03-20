@@ -2,24 +2,28 @@
 interface Props {
   title: string;
   description: string;
+  date: Date;
+  href: string;
   image: {
     url: string;
     alt: string;
   };
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, date, href, image } = Astro.props;
 ---
 
-<div class="card">
-  <figure class="card__image">
-    <img src={image.url} alt={image.alt} width={400} loading="lazy" />
-  </figure>
-  <section class="card__content">
-    <h5 class="card__title">{title}</h5>
-    <span class="card__description">{description}</span>
-  </section>
-</div>
+<a href={href}>
+  <div class="card">
+    <figure class="card__image">
+      <img src={image.url} alt={image.alt} width={400} loading="lazy" />
+    </figure>
+    <section class="card__content">
+      <h5 class="card__title">{title}</h5>
+      <span class="card__description">{description}</span>
+    </section>
+  </div>
+</a>
 
 <style lang="scss">
   .card {
@@ -53,12 +57,15 @@ const { title, description, image } = Astro.props;
         size: 1.5em;
         weight: 700;
       }
+      margin: 0.5em 0;
     }
 
     &__description {
       font: {
+        size: 0.85em;
         weight: 50;
       }
+      margin: 0.5em 0;
     }
   }
 </style>
