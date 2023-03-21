@@ -3,6 +3,7 @@ import Icon from "astro-iconify";
 import Default from "./Default.astro";
 import Tags from "../components/Tags.astro";
 import Separator from "../components/Separator.astro";
+import MarkdownArticle from "../components/MarkdownArticle.astro";
 const { frontmatter } = Astro.props;
 ---
 
@@ -16,7 +17,7 @@ const { frontmatter } = Astro.props;
       />
       {frontmatter.author}
     </div>
-    <p>&nbsp;&nbsp;•&nbsp;&nbsp;</p>
+    <Icon name="mdi:star-four-points-small" size={24}/>
     <div class="metadata__date">
       <Icon
         class="metadata__icon"
@@ -38,7 +39,9 @@ const { frontmatter } = Astro.props;
     loading="eager"
   />
   <Separator />
-  <slot />
+  <MarkdownArticle>
+    <slot />
+  </MarkdownArticle>
 </Default>
 
 <style lang="scss">
