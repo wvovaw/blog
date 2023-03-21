@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-iconify";
+---
+
+<p class="lead"><Icon name="mdi:format-section" size={20} /></p>
+
+<style lang="scss">
+  .lead {
+    align-items: center;
+    display: grid;
+    gap: 0.5em;
+    grid-template-columns: 25vw auto 25vw;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    position: relative;
+    text-align: center;
+    margin: 3em 0;
+  }
+
+  .lead::before,
+  .lead::after {
+    content: "";
+    height: 2px;
+    background: rgb(63, 251, 138);
+    background: radial-gradient(
+      circle,
+      rgba(63, 251, 138, 1) 0%,
+      rgba(131, 70, 252, 1) 100%
+    );
+  }
+</style>

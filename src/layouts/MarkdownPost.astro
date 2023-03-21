@@ -1,22 +1,67 @@
 ---
+import Icon from "astro-iconify";
 import Default from "./Default.astro";
 import Tags from "../components/Tags.astro";
+import Separator from "../components/Separator.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<Default pageTitle={'📖 ' + frontmatter.title}>
-  <p>{frontmatter.pubDate.slice(0, 10)}</p>
-  <p><em>{frontmatter.description}</em></p>
-  <p>Author: {frontmatter.author}</p>
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-  <div class="tags">
+<Default pageTitle={"📖 " + frontmatter.title}>
+  <div class="metadata">
+    <div class="metadata__author">
+      <Icon
+        class="metadata__icon"
+        name="material-symbols:person-rounded"
+        size={24}
+      />
+      {frontmatter.author}
+    </div>
+    <p>&nbsp;&nbsp;•&nbsp;&nbsp;</p>
+    <div class="metadata__date">
+      <Icon
+        class="metadata__icon"
+        name="material-symbols:calendar-today"
+        size={24}
+      />
+      <time class="metadata__time" datetime={frontmatter.date}>
+        {new Date(frontmatter.pubDate).toDateString()}
+      </time>
+    </div>
+  </div>
+  <div class="metadata__tags">
     <Tags tags={frontmatter.tags} />
   </div>
+  <img
+    src={frontmatter.image.url}
+    width="100%"
+    alt={frontmatter.image.alt}
+    loading="eager"
+  />
+  <Separator />
   <slot />
 </Default>
 
 <style lang="scss">
-  .tags {
-    margin: 2em 0;
+  .metadata {
+    display: inline-flex;
+    text-align: center;
+    margin-bottom: 1em;
+    color: rgb(112, 112, 112);
+    & div {
+      display: flex;
+      gap: 5px;
+    }
+
+    & * {
+      font: {
+        size: 1.1em;
+      }
+    }
+    &__tags {
+      margin: 1em 0;
+    }
+  }
+  img {
+    margin-inline: auto;
   }
 </style>
