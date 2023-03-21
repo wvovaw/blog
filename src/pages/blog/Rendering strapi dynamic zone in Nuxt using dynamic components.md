@@ -81,10 +81,7 @@ Directory structure:
 
 ## Create BlocksDynamicZone.vue component
 
-```vue
-<!--
-  @/components/strapi_components/blocks/BlocksDynamicZone.vue
--->
+```vue:@/components/strapi_components/blocks/BlocksDynamicZone.vue
 <script lang="ts" setup>
 defineProps({
 	blocks: {
@@ -111,10 +108,7 @@ The **BlocksDynamicZone.vue** responses for deciding which component to render d
 
 ## Create blocks components
 
-```vue
-<!--
-  @/components/strapi_components/blocks/Hero.vue
--->
+```vue:@/components/strapi_components/blocks/Hero.vue
 <script lang="ts" setup>
 const props = defineProps({
   block: {
@@ -160,10 +154,7 @@ const props = defineProps({
 </template>
 ```
 
-```vue
-<!--
-  @/components/strapi_components/blocks/RichText.vue
--->
+```vue:@/components/strapi_components/blocks/RichText.vue
 <script lang="ts" setup>
 const props = defineProps({
   block: {
@@ -196,10 +187,7 @@ const props = defineProps({
 
 ## Add BlocksDynamicZone.vue on the page
 
-```vue
-<!--
-  @/pages/[page].vue
--->
+```vue:@/pages/[page].vue
 <script lang="ts" setup>
 const route = useRoute().path.replace("/", "");
 const page = await(await usePages({ slug: { $eq: route } })).pages;
@@ -210,7 +198,7 @@ const page = await(await usePages({ slug: { $eq: route } })).pages;
 </template>
 ```
 
-```ts
+```ts:@/composables/pages.ts
 export const usePages = async (filters: Record<string, any>) => {
   const { find } = useStrapi();
   const data = await useAsyncData("pages", () =>

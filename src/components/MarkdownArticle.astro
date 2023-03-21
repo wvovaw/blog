@@ -132,8 +132,23 @@
         display: block;
         overflow-x: auto;
         color: $color-fg;
-        background: transparent;
+        background: hsla(var(--fg-light-hsl), 0.95);
       }
+    }
+
+    .remark-code-title {
+      width: fit-content;
+      font-size: 0.8em;
+      padding: 0.2em 1em;
+      color: hsla(var(--fg-dark-hsl), 0.8);
+      background: hsla(var(--fg-dark-hsl), 0.05);
+      border-radius: 6px;
+      border: 1px solid $color-theme-lighter;
+      border-bottom: none;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      position: relative;
+      top: 4px;
     }
 
     a {
@@ -164,7 +179,14 @@
       text-align: left;
     }
     tr:nth-child(2n) {
-      background-color: $color-theme-lightest;
+      background: repeating-linear-gradient(
+        45deg,
+        $color-theme-lightest 1px,
+        transparent 2px,
+        transparent 4px,
+        $color-theme-lightest 5px,
+        $color-theme-lightest 2px
+      );
     }
     th,
     td {
