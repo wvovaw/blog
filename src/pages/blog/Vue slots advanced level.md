@@ -81,7 +81,7 @@ const article = {
 
 Result:
 
-![[Pasted image 20230303172535.png]]
+![slots result example 1](/posts/advanced_vue_slots/advanced_vue_slots_1.png)
 
 Check it on [The Vue SFC Playground](https://sfc.vuejs.org/#eNp9Uk1PwzAM/StWOADSlgiJUzWQ+AccEBfCobQeKzQfStwCmvbfsRNA20D0UPnFzy/xs7fqJkY9T6gatcpdGiJBRpritfWDiyER3N+GTLBOwcGpNgVJwan1XfCciZK+gq31lmigERuw6n5CyGOg3EDbz63vsIcRZxytWgixx3rZELzQ7zZDhjbR0I0IEj6FiWAT3oACTBmBL6x6X/WE7ySFY0joYIh5ctAHRlprq6zfWb8y9QruhAGhi2NLKIhWpYsSMvhOVWhpXq5DurLqbG7HBbzixzmEdWlTlCun4WOm8F/OoHwnDwwfK4O1oTK3W2Ad2PGLhLQyhy+phnK8l1ALVb1fujbqlxw8T4f9BW64JtiGRhwXRavYHMFWbYhibozJ605G9JJ1SM+GI50mT4NDjdktn1J4y5hYuJj5o2H4cMa0TOh7TJj+0zyi/tIVWe54x638bIys2F7z7MXm4nsGMlvwrUM2tSyRVWCuy9OEaApTKi7/qtjbpuM64XMg+1zsP7iIl6jwK1c4+1PYfQLryRFj)
 
@@ -91,8 +91,8 @@ Check it on [The Vue SFC Playground](https://sfc.vuejs.org/#eNp9Uk1PwzAM/StWOADS
 
 Scoped slots is the mechanism of passing child components data up to the ~~parent component~~ template that will be rendered in the place of the slot. To do this `<slot />` default component may accept attributes just like components accept props:
 
-_Vue js documentation scoped slots diagram_:
-![[Pasted image 20230303182515.png]]
+
+![slots diagram](/posts/advanced_vue_slots/slots_diagram.png)
 
 ## Scoped Slots example
 
@@ -172,36 +172,6 @@ const someObject = { title: "Title", text: "Lorem ipsum...", views: 12 };
   </div>
 </template>
 ```
-
-| 1   | 2   | 3   | 4   | 4   |
-| --- | --- | --- | --- | --- |
-| as  | a   | as  |     |     |
-| asd |     | as  |     | ss  |
-|     | sas |     |     | as  |
-| as  | a   | as  |     |     |
-| as  | a   | as  |     |     |
-| asd |     | as  |     | ss  |
-|     | sas |     |     | as  |
-| as  | a   | as  |     |     |
-| asd |     | as  |     | ss  |
-|     | sas |     |     | as  |
-| asd |     | as  |     | ss  |
-|     | sas |     |     | as  |
-
-## collapsible markdown?
-
-<details>
-<summary>! Some additional information</summary>
-<p>
-
-#### yes, even hidden code blocks!
-
-```python
-print("hello world!")
-```
-
-</p>
-</details>
 
 > **⚠️ WARNING**
 > Slots _name_ attribute won't be included in the props because it is reserved

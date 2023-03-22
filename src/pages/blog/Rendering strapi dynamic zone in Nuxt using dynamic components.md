@@ -10,19 +10,19 @@ image:
 tags: ["strapi", "nuxt"]
 ---
 
-Creating a dynamic zone on a page is the best solution for those clients who obviously won't be tinkering on the nuxt frontend code base by themselves, but edit a website content in the  strapi content manager. Clients may want to move one block on above of another, add or remove some parts of a web page, so they usually ask a web developer to do it. It may cost much time for the developer of the project to make this type of changes and cost client money. Adding strapi dynamic zones saves time and money.
+Creating a dynamic zone on a page is the best solution for those clients who obviously won't be tinkering on the nuxt frontend code base by themselves, but edit a website content in the strapi content manager. Clients may want to move one block on above of another, add or remove some parts of a web page, so they usually ask a web developer to do it. It may cost much time for the developer of the project to make this type of changes and cost client money. Adding strapi dynamic zones saves time and money.
 
 # Index
 
 1. [Prerequisites](#prerequisites)
 2. [In strapi](#In%20Strapi)
-	1. [Add Blocks dynamic zone](#Add%20Blocks%20dynamic%20zone)
-	2. [Create blocks examples](#Create%20blocks%20examples)
+   1. [Add Blocks dynamic zone](#Add%20Blocks%20dynamic%20zone)
+   2. [Create blocks examples](#Create%20blocks%20examples)
 3. [In Nuxt](#In%20Nuxt)
-	1. [Create BlocksDynamicZone.vue component](#Create%20BlocksDynamicZone.vue%20component)
-	2. [Create blocks components](#create%20blocks%20components)
-	2. [Result](#Result)
-5. [Conclusion](#Conclusion)
+   1. [Create BlocksDynamicZone.vue component](#Create%20BlocksDynamicZone.vue%20component)
+   2. [Create blocks components](#create%20blocks%20components)
+   3. [Result](#Result)
+4. [Conclusion](#Conclusion)
 
 # Prerequisites
 
@@ -35,35 +35,35 @@ In this example we have page collection in Strapi. Nuxt has **[pages].vue** page
 
 ## Create blocks examples
 
-Create new components (*I recommend to place components under the category which has the same name as the dynamic zone it will be available as an option*)
+Create new components (_I recommend to place components under the category which has the same name as the dynamic zone it will be available as an option_)
 
 Let's create a **Hero** component. It will display the title and smaller subtitle and It will also have text size and alignment dependent on its selections
 
-![[Pasted image 20230303001227.png]]
+![create hero component in strapi](/public/posts/strapi_nuxt_dynamic_zones/create_hero_component_in_strapi.png)
 
 And another component - **RichText** which will only have one field with the Rich text type
 
-![[Pasted image 20230303001951.png]]
+![create rich text component in strapi](/public/posts/strapi_nuxt_dynamic_zones/create_rich_text_component_in_strapi.png)
 
 ## Add Blocks dynamic zone
 
-After we have created a couple of blocks we must add dynamic zone on the page and for consistency name it Blocks 
+After we have created a couple of blocks we must add dynamic zone on the page and for consistency name it Blocks
 
-![[Pasted image 20230303002228.png]]
-![[Pasted image 20230303002425.png]]
+![add dynamic zone on page](/public/posts/strapi_nuxt_dynamic_zones/add_dynamic_zone_on_page.png)
+![add dynamic zone on page result](/public/posts/strapi_nuxt_dynamic_zones/add_dynamic_zone_on_page_result.png)
 
 After that save the changes, create an example page and add this blocks on it
 
-![[Pasted image 20230303002752.png]]
+![test page view](/public/posts/strapi_nuxt_dynamic_zones/test%20page%20view.png)
 
 Save it and publish and we're ready to go further.
 
 # In Nuxt
 
->**⚠️ WARNING**
-> Class attributes with tailwindcss styles have been omitted as they are not relevant to the article. 
+> **⚠️ WARNING**
+> Class attributes with tailwindcss styles have been omitted as they are not relevant to the article.
 
-To display our components on a page we must have created **Hero.vue** and **RichText.vue** components and the **BlocksDynamicZone.vue** component which will dynamically resolve which of them to render depending on strapi data.    
+To display our components on a page we must have created **Hero.vue** and **RichText.vue** components and the **BlocksDynamicZone.vue** component which will dynamically resolve which of them to render depending on strapi data.
 
 Directory structure:
 
@@ -76,7 +76,7 @@ Directory structure:
 │          └── BlocksDynamicZone.vue
 ```
 
->**❕ NOTE**
+> **❕ NOTE**
 > I recommend to create **strapi_components** directory in the **@/components** directory to place all the strapi dependent components there to keep your app code consistent and easier to maintain. In this example we add **blocks** directory in the **strapi_components** and place our **Hero.vue** and **RichText.vue** in it.
 
 ## Create BlocksDynamicZone.vue component
@@ -94,7 +94,7 @@ const components = new Map([
 	["blocks.rich-text", resolveComponent("RichText")],
 ]);
 </script>
-  
+
 <template>
 	<template v-for="block of blocks" :key="useRandomString(5)">
 		<component :is="components.get(block.__component)" :block="block"/>
@@ -102,9 +102,9 @@ const components = new Map([
 </template>
 ```
 
-The **BlocksDynamicZone.vue** responses for deciding which component to render depending on the data from the strapi backend. All we need to implement this behavior is to pass the **blocks** array of the **page** object as a component property, then iterate over all the elements in the **blocks** array and use its **__component** property as the key to get corresponding component. This approach uses [Vue dynamic components](https://nuxt.com/docs/guide/directory-structure/components#dynamic-components) mechanism with **resolveComponent()** helper function provided by vue. Map fits very well here because we have a key-value dependency.
+The **BlocksDynamicZone.vue** responses for deciding which component to render depending on the data from the strapi backend. All we need to implement this behavior is to pass the **blocks** array of the **page** object as a component property, then iterate over all the elements in the **blocks** array and use its **\_\_component** property as the key to get corresponding component. This approach uses [Vue dynamic components](https://nuxt.com/docs/guide/directory-structure/components#dynamic-components) mechanism with **resolveComponent()** helper function provided by vue. Map fits very well here because we have a key-value dependency.
 
-> Remember that strapi translate *PascalCase* and *camelCase* names to *kebab-case*. So, *RichText* becomes *rich-text* etc.
+> Remember that strapi translate _PascalCase_ and _camelCase_ names to _kebab-case_. So, _RichText_ becomes _rich-text_ etc.
 
 ## Create blocks components
 
@@ -173,16 +173,19 @@ const props = defineProps({
 ```
 
 **Hero.vue** and **RichText.vue** components accepts one property - blocks. It makes it possible to unify the interface of the dynamic component:
+
 ```vue
-<component :is="block.__component" :block="block" />  
+<component :is="block.__component" :block="block" />
 ```
 
 **Pros:**
+
 - Less code
 - Easy to add new components
-- Unified interface (single property) 
+- Unified interface (single property)
 
 **Cons:**
+
 - No separate props checking and validation (but you can still make validators for the block property and validate its fields)
 
 ## Add BlocksDynamicZone.vue on the page
@@ -220,7 +223,7 @@ export const usePages = async (filters: Record<string, any>) => {
       filters,
     })
   );
-  
+
   return { pages: toRaw(data.data.value) };
 };
 
@@ -230,7 +233,7 @@ Since strapi does not include dynamic zones in response by default you must popu
 
 # Result
 
-![[Pasted image 20230303044125.png]]
+![result](/public/posts/strapi_nuxt_dynamic_zones/result.png)
 
 # Conclusion
 
