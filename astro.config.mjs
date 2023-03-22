@@ -7,7 +7,7 @@ import remarkCodeTitles from "remark-code-titles";
 export default defineConfig({
   markdown: {
     shikiConfig: {
-      theme: "vitesse-light"
+      theme: "vitesse-dark"
     },
     remarkPlugins: [remarkCodeTitles]
   },

@@ -1,0 +1,53 @@
+@import "preflight.css";
+@import "themes";
+
+html {
+  font-family: sans-serif;
+
+  &.dark-theme {
+    background-color: $theme-dark-bg;
+    color: $theme-dark-fg;
+  }
+
+  &.light-theme {
+    background-color: $theme-light-bg;
+    color: $theme-light-fg;
+  }
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100ch;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+::selection {
+  background: theme-saturation($theme-primary, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 1rem 0;
+  font-size: 2.5rem;
+}
+h2 {
+  margin: 1rem 0;
+  font-size: 1.8rem;
+}
+h3 {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+a:hover,
+button:hover {
+  cursor: crosshair;
+}
+
+@media screen and (min-width: 636px) {
+}

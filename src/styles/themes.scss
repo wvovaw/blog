@@ -1,0 +1,73 @@
+:root {
+  --primary: hsl(136, 74%, 44%);
+  --primary-h: 136;
+  --primary-s: 74%;
+  --primary-l: 44%;
+
+  --light-bg: hsl(0, 0%, 95%);
+  --light-bg-h: 0;
+  --light-bg-s: 0%;
+  --light-bg-l: 95%;
+
+  --light-fg: hsl(0, 0%, 5%);
+  --light-fg-h: 0;
+  --light-fg-s: 0%;
+  --light-fg-l: 5%;
+
+  --dark-bg: hsl(0, 0%, 9%);
+  --dark-bg-h: 0;
+  --dark-bg-s: 0%;
+  --dark-bg-l: 9%;
+
+  --dark-fg: hsl(0, 0%, 90%);
+  --dark-fg-h: 0;
+  --dark-fg-s: 0%;
+  --dark-fg-l: 90%;
+}
+
+$primary: var(--primary);
+$dark-bg: var(--dark-bg);
+$dark-fg: var(--dark-fg);
+$light-bg: var(--light-bg);
+$light-fg: var(--light-fg);
+
+/*
+  Helper functions
+*/
+@function saturation($color, $saturationMultiplier) {
+  $color: str-replace($color, "var(");
+  $color: str-replace($color, ")");
+  $color-h: var(#{$color + "-h"});
+  $color-s: var(#{$color + "-s"});
+  $color-l: var(#{$color + "-l"});
+  @return hsl($color-h, calc(#{$color-s} * #{$saturationMultiplier}), $color-l);
+}
+@function lightness($color, $lightnessMultiplier) {
+  $color: str-replace($color, "var(");
+  $color: str-replace($color, ")");
+  $color-h: var(#{$color + "-h"});
+  $color-s: var(#{$color + "-s"});
+  $color-l: var(#{$color + "-l"});
+  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
+}
+@function alpha($color, $opacity) {
+  $color: str-replace($color, "var(");
+  $color: str-replace($color, ")");
+  $color-h: var(#{$color + "-h"});
+  $color-s: var(#{$color + "-s"});
+  $color-l: var(#{$color + "-l"});
+  @return hsla($color-h, $color-s, $color-l, $opacity);
+}
+// credits: https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+  @return $string;
+}
