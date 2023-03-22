@@ -8,7 +8,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://wvovaw.github.io",
-  base: "/b/",
+  base: "/blog",
   markdown: {
     shikiConfig: {
       theme: "vitesse-dark",
