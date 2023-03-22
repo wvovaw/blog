@@ -7,7 +7,12 @@ import MarkdownArticle from "../components/MarkdownArticle.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<Default pageTitle={"📖 " + frontmatter.title}>
+<Default
+  title={"📖 " + frontmatter.title}
+  description={frontmatter.description}
+  {frontmatter}
+  image={frontmatter.image}
+>
   <div class="metadata">
     <div class="metadata__author">
       <Icon
@@ -17,7 +22,7 @@ const { frontmatter } = Astro.props;
       />
       {frontmatter.author}
     </div>
-    <Icon name="mdi:star-four-points-small" size={24}/>
+    <Icon name="mdi:star-four-points-small" size={24} />
     <div class="metadata__date">
       <Icon
         class="metadata__icon"

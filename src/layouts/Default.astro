@@ -1,8 +1,21 @@
 ---
+import { SEO } from "astro-seo";
 import Header from "../components/Header.astro";
 import "../styles/global.scss";
-let { pageTitle } = Astro.props;
-pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
+export interface Props {
+  title: string;
+  description: string;
+  image?: { url: string; alt?: string };
+  frontmatter?: Record<string, any>;
+}
+let {
+  title,
+  description,
+  image = { url: "/profile_card.png", alt: "Vladimir Ivakhno, fullstack dev" },
+  frontmatter = null,
+} = Astro.props;
+title = title.charAt(0).toUpperCase() + title.slice(1);
+const url = Astro.request.url;
 ---
 
 <html lang="en">
@@ -11,35 +24,76 @@ pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <SEO
+      title={title}
+      description={description}
+      canonical={url}
+      openGraph={{
+        basic: {
+          url,
+          title: `${title}.`,
+          type: frontmatter ? "post" : "website",
+          image: image.url,
+        },
+        optional: {
+          description,
+          locale: "en_US",
+          siteName: "Wvovaw blog",
+        },
+        image: {
+          type: "image/png",
+          url: image.url,
+          alt: image.alt,
+          height: 600,
+          width: 1050,
+          // secureUrl: image.src // ???
+        },
+        article: frontmatter
+          ? {
+              authors: [frontmatter.author],
+              publishedTime: frontmatter.pubDate,
+              tags: frontmatter.tags,
+            }
+          : {},
+      }}
+      twitter={{
+        creator: "@wvovaw",
+        title,
+        description,
+        image: image.url,
+        imageAlt: image.alt,
+        card: "summary_large_image",
+        site: import.meta.env.PUBLIC_BASE_URL,
+      }}
+    />
   </head>
   <body>
     <div class="rainbow"></div>
     <Header />
-    <h1>{pageTitle}</h1>
+    <h1>{title}</h1>
     <slot />
     <script>
       import "../scripts/menu.js";
     </script>
+    <style lang="scss">
+      .rainbow {
+        width: 99vw;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: rgb(255, 0, 0);
+        background: linear-gradient(
+          90deg,
+          rgba(255, 0, 0, 1) 0%,
+          rgba(255, 115, 0, 1) 15%,
+          rgba(249, 255, 0, 1) 32%,
+          rgba(0, 255, 4, 1) 49%,
+          rgba(0, 245, 255, 1) 67%,
+          rgba(0, 91, 255, 1) 83%,
+          rgba(72, 0, 255, 1) 100%
+        );
+      }
+    </style>
   </body>
 </html>
-<style lang="scss">
-  .rainbow {
-    width: 99vw;
-    height: 3px;
-    position:absolute;
-    left: 0;
-    top: 0;
-    background: rgb(255, 0, 0);
-    background: linear-gradient(
-      90deg,
-      rgba(255, 0, 0, 1) 0%,
-      rgba(255, 115, 0, 1) 15%,
-      rgba(249, 255, 0, 1) 32%,
-      rgba(0, 255, 4, 1) 49%,
-      rgba(0, 245, 255, 1) 67%,
-      rgba(0, 91, 255, 1) 83%,
-      rgba(72, 0, 255, 1) 100%
-    );
-  }
-</style>

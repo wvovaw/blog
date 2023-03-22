@@ -1,9 +1,13 @@
 ---
 import Default from "../layouts/Default.astro";
 const pageTitle = "🏠 Home page";
+const description = "This is my blog subsite";
 ---
 
-<Default pageTitle={pageTitle}>
+<Default
+  title={pageTitle}
+  description={description}
+>
   <main>
     <h2>This is my blog subsite</h2>
     <p>It also has some other standalone pages with different content that I found interesting. Have fun 🫰</p>

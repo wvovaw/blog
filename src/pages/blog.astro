@@ -4,10 +4,14 @@ import Tags from "../components/Tags.astro";
 import BlogpostsGrid from "../components/BlogpostsGrid.astro";
 
 const pageTitle = "📑 Blog posts";
+const description = "Here is all the blog posts I've ever made";
 const allPosts = await Astro.glob("./blog/*.md");
 ---
 
-<Default pageTitle={pageTitle}>
+<Default
+  title={pageTitle}
+  description={description}
+>
   <Tags />
   <BlogpostsGrid posts={allPosts} />
 </Default>

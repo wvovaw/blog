@@ -23,13 +23,16 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<Default pageTitle={"🏷️ " + tag}>
+<Default
+  title={"🏷️ " + tag}
+  description={"Posts including tag " + tag }
+>
   <p>Posts including tag <span class="tag">{tag}</span></p>
   <BlogpostsGrid posts={posts} />
 </Default>
 
 <style lang="scss">
-  @import "../styles/themes.scss";
+  @import "../../../styles/themes.scss";
   .tag {
     color: $theme-primary
   }
