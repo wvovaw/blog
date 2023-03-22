@@ -5,7 +5,7 @@ pubDate: 2023-03-02
 description: "How to make your Nuxt frontend to render strapi dynamic zones"
 author: "wvovaw"
 image:
-  url: "../../posts/strapi_nuxt_dynamic_zones/banner.png"
+  url: "/blog/posts/strapi_nuxt_dynamic_zones/banner.png"
   alt: "Strapi and Nuxt"
 tags: ["strapi", "nuxt"]
 ---
@@ -39,22 +39,22 @@ Create new components (_I recommend to place components under the category which
 
 Let's create a **Hero** component. It will display the title and smaller subtitle and It will also have text size and alignment dependent on its selections
 
-![create hero component in strapi](/posts/strapi_nuxt_dynamic_zones/create_hero_component_in_strapi.png)
+![create hero component in strapi](/blog/posts/strapi_nuxt_dynamic_zones/create_hero_component_in_strapi.png)
 
 And another component - **RichText** which will only have one field with the Rich text type
 
-![create rich text component in strapi](/posts/strapi_nuxt_dynamic_zones/create_rich_text_component_in_strapi.png)
+![create rich text component in strapi](/blog/posts/strapi_nuxt_dynamic_zones/create_rich_text_component_in_strapi.png)
 
 ## Add Blocks dynamic zone
 
 After we have created a couple of blocks we must add dynamic zone on the page and for consistency name it Blocks
 
-![add dynamic zone on page](/posts/strapi_nuxt_dynamic_zones/add_dynamic_zone_on_page.png)
-![add dynamic zone on page result](/posts/strapi_nuxt_dynamic_zones/add_dynamic_zone_on_page_result.png)
+![add dynamic zone on page](/blog/posts/strapi_nuxt_dynamic_zones/add_dynamic_zone_on_page.png)
+![add dynamic zone on page result](/blog/posts/strapi_nuxt_dynamic_zones/add_dynamic_zone_on_page_result.png)
 
 After that save the changes, create an example page and add this blocks on it
 
-![test page view](/posts/strapi_nuxt_dynamic_zones/test%20page%20view.png)
+![test page view](/blog/posts/strapi_nuxt_dynamic_zones/test%20page%20view.png)
 
 Save it and publish and we're ready to go further.
 
@@ -233,7 +233,7 @@ Since strapi does not include dynamic zones in response by default you must popu
 
 # Result
 
-![result](/posts/strapi_nuxt_dynamic_zones/result.png)
+![result](/blog/posts/strapi_nuxt_dynamic_zones/result.png)
 
 # Conclusion
 

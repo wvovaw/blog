@@ -4,7 +4,7 @@ interface Props {
 }
 let { tags } = Astro.props;
 
-const allPosts = await Astro.glob("../pages/blog/*.md");
+const allPosts = await Astro.glob("../pages/posts/**/*.md");
 const allTags = [
 ...new Set(allPosts.map((post) => post.frontmatter.tags).flat()),
 ];
@@ -16,7 +16,7 @@ if (!tags) tags = allTags;
   {
     tags.map((tag: any) => (
       <p>
-        <a class="tags__item" href={`/blog/tags/${tag}`}>
+        <a class="tags__item" href={`/blog/posts/tags/${tag}`}>
           {tag}
         </a>
       </p>

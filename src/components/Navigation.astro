@@ -4,14 +4,14 @@ import { Icon } from "astro-iconify";
 
 const currentPath = Astro.url.pathname;
 const menu = [
-  { href: "/about/", title: "About me" },
-  { href: "/blog/", title: "Blog" },
-  { href: "/music/", title: "Music" },
+  { href: "/blog/about/", title: "About me" },
+  { href: "/blog/posts/", title: "Articles" },
+  { href: "/blog/music/", title: "Music" },
 ];
 ---
 
 <div class="nav">
-  <a class="nav__link--iconed" href="/">
+  <a class="nav__link--iconed" href="/blog/">
     <Icon size={48} name="fluent-emoji-flat:bug" />
   </a>
   {
