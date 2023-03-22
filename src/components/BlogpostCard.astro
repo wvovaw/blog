@@ -12,6 +12,7 @@ interface Props {
 
 const { title, description, date, href, image } = Astro.props;
 ---
+
 <div class="card">
   <figure class="card__image">
     <img src={image.url} alt={image.alt} width={400} loading="lazy" />
@@ -26,17 +27,19 @@ const { title, description, date, href, image } = Astro.props;
 </div>
 
 <style lang="scss">
+  @import "../styles/themes.scss";
   .card {
     margin: 2em 0;
     width: 320px;
     height: 420px;
     margin-inline: auto;
-    background: hsl(var(--bg-dark-hsl), 0.15);
-
     transition: box-shadow 200ms ease-in, transform 200ms ease-in;
 
-    :global(.dark) & {
-      background: hsl(var(--bg-light-hsl), 0.035);
+    :global(.light-theme) & {
+      background: theme-lightness($theme-light-bg, 0.92);
+    }
+    :global(.dark-theme) & {
+      background: theme-lightness($theme-dark-bg, 1.4);
     }
 
     &:hover,
@@ -62,7 +65,7 @@ const { title, description, date, href, image } = Astro.props;
 
     &__title {
       font: {
-        size: 1.5em;
+        size: 1.3em;
         weight: 700;
       }
 
@@ -83,8 +86,8 @@ const { title, description, date, href, image } = Astro.props;
     }
 
     &__date {
-      :global(.dark) & {
-        color: hsl(var(--fg-dark-hsl), 0.5);
+      :global(.dark-theme) & {
+        color: theme-lightness($theme-dark-fg, 0.6);
       }
       margin: 0.2em 0;
 

@@ -25,6 +25,7 @@ if (!tags) tags = allTags;
 </div>
 
 <style lang="scss">
+  @import "../styles/themes.scss";
   .tags {
     display: flex;
     flex-wrap: wrap;
@@ -33,10 +34,14 @@ if (!tags) tags = allTags;
     
     &__item {
       margin: 0.25em;
-      border: dotted 1px var(--primary);
-      color: var(--primary);
+      border: dotted 1px $theme-primary;
+      color: $theme-primary;
       padding: 0.2em 0.6em;
       font-size: 1em;
+
+      &::before {
+        content: "#";
+      }
     }
   }
 </style>
