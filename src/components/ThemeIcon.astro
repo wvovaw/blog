@@ -49,7 +49,9 @@
 
   if (theme === "light-theme") {
     document.documentElement.classList.remove("dark-theme");
+    document.documentElement.classList.add("light-theme");
   } else {
+    document.documentElement.classList.remove("light-theme");
     document.documentElement.classList.add("dark-theme");
   }
 
@@ -57,7 +59,13 @@
 
   const handleToggleClick = () => {
     const element = document.documentElement;
-    element.classList.toggle("dark-theme");
+    if (element.classList.contains("dark-theme")) {
+      element.classList.remove("dark-theme");
+      element.classList.add("light-theme");
+    } else {
+      document.documentElement.classList.remove("light-theme");
+      document.documentElement.classList.add("dark-theme");
+    }
 
     const isDark = element.classList.contains("dark-theme");
     localStorage.setItem("theme", isDark ? "dark-theme" : "light-theme");
