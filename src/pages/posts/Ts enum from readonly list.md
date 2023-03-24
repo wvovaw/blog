@@ -13,7 +13,6 @@ tags: ["typescript"]
 Let"s say we have a union type that is responsible for the publishing state of article.
 
 ```typescript:types.ts
-
 export interface Article {
   title: string;
   state: ArticleState;
@@ -27,7 +26,6 @@ What if you need to add a new option like "on-review"? You must open the `types.
 But there is a good practice to take this options out in a separate **readonly tuple** and use its type:
 
 ```typescript:constants.ts
-
 export const articleState = ["draft", "published", "on-review"] as const;
 ```
 

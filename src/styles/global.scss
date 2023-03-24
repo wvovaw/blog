@@ -1,8 +1,9 @@
 @import "preflight.css";
 @import "themes";
+@import "fonts.css";
 
 html {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
 
   &.dark-theme {
     background-color: $theme-dark-bg;
