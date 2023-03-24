@@ -15,11 +15,11 @@ Creating a dynamic zone on a page is the best solution for those clients who obv
 # Prerequisites
 
 1. Strapi application with pages collection type
-2. Nuxt frontend application with **[page].vue** page component (route)
+2. Nuxt frontend application with `[page].vue` page component (route)
 
 # In Strapi
 
-In this example we have page collection in Strapi. Nuxt has **[pages].vue** page that renders particular page depending on its slug defined in Strapi. We will be adding the dynamic zone named Blocks and a couple of example components that will be available in the Blocks dynamic zone. It is possible to define different dynamic zones and delimit components which may be added in each zone.
+In this example we have page collection in Strapi. Nuxt has `[pages].vue` page that renders particular page depending on its slug defined in Strapi. We will be adding the dynamic zone named Blocks and a couple of example components that will be available in the Blocks dynamic zone. It is possible to define different dynamic zones and delimit components which may be added in each zone.
 
 ## Create blocks examples
 
@@ -51,7 +51,7 @@ Save it and publish and we're ready to go further.
 > **⚠️ WARNING**
 > Class attributes with tailwindcss styles have been omitted as they are not relevant to the article.
 
-To display our components on a page we must have created **Hero.vue** and **RichText.vue** components and the **BlocksDynamicZone.vue** component which will dynamically resolve which of them to render depending on strapi data.
+To display our components on a page we must have created `Hero.vue` and `RichText.vue` components and the `BlocksDynamicZone.vue` component which will dynamically resolve which of them to render depending on strapi data.
 
 Directory structure:
 
@@ -65,7 +65,7 @@ Directory structure:
 ```
 
 > **❕ NOTE**
-> I recommend to create **strapi_components** directory in the **@/components** directory to place all the strapi dependent components there to keep your app code consistent and easier to maintain. In this example we add **blocks** directory in the **strapi_components** and place our **Hero.vue** and **RichText.vue** in it.
+> I recommend to create **strapi_components** directory in the `@/components` directory to place all the strapi dependent components there to keep your app code consistent and easier to maintain. In this example we add **blocks** directory in the **strapi_components** and place our `Hero.vue` and `RichText.vue` in it.
 
 ## Create BlocksDynamicZone.vue component
 
@@ -90,7 +90,7 @@ const components = new Map([
 </template>
 ```
 
-The **BlocksDynamicZone.vue** responses for deciding which component to render depending on the data from the strapi backend. All we need to implement this behavior is to pass the **blocks** array of the **page** object as a component property, then iterate over all the elements in the **blocks** array and use its **\_\_component** property as the key to get corresponding component. This approach uses [Vue dynamic components](https://nuxt.com/docs/guide/directory-structure/components#dynamic-components) mechanism with **resolveComponent()** helper function provided by vue. Map fits very well here because we have a key-value dependency.
+The `BlocksDynamicZone.vue` responses for deciding which component to render depending on the data from the strapi backend. All we need to implement this behavior is to pass the **blocks** array of the **page** object as a component property, then iterate over all the elements in the **blocks** array and use its `\_\_component` property as the key to get corresponding component. This approach uses [Vue dynamic components](https://nuxt.com/docs/guide/directory-structure/components#dynamic-components) mechanism with `resolveComponent()` helper function provided by vue. Map fits very well here because we have a key-value dependency.
 
 > Remember that strapi translate _PascalCase_ and _camelCase_ names to _kebab-case_. So, _RichText_ becomes _rich-text_ etc.
 
@@ -160,7 +160,7 @@ const props = defineProps({
 </template>
 ```
 
-**Hero.vue** and **RichText.vue** components accepts one property - blocks. It makes it possible to unify the interface of the dynamic component:
+`Hero.vue` and `RichText.vue` components accepts one property - blocks. It makes it possible to unify the interface of the dynamic component:
 
 ```vue
 <component :is="block.__component" :block="block" />

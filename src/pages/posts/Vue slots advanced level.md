@@ -16,7 +16,7 @@ Slots is one of the most used features in vue. We get used to use **Default Slot
 
 [Official vue documentation](https://vuejs.org/guide/components/slots.html#named-slots) says:
 
-> [Dynamic directive arguments](https://vuejs.org/guide/essentials/template-syntax.html#directives) also work on v-slot, allowing the definition of dynamic slot names:
+> [Dynamic directive arguments](https://vuejs.org/guide/essentials/template-syntax.html#directives) also work on `v-slot`, allowing the definition of dynamic slot names:
 
 ```vue
 <base-layout>
@@ -32,7 +32,7 @@ Slots is one of the most used features in vue. We get used to use **Default Slot
 ```
 
 I found it not that clear and obvious as it supposed to be. So here is a neat example of a use case of this approach:
-Here we have a simple **VArticle.vue** component that has 3 named slots - _title_, _description_, _text_ to render an article in the correct order and applies the default html styles:
+Here we have a simple `VArticle.vue` component that has 3 named slots - `title`, `description`, `text` to render an article in the correct order and applies the default html styles:
 
 ```vue:VArticle.vue
 <template>
@@ -48,7 +48,7 @@ Here we have a simple **VArticle.vue** component that has 3 named slots - _title
 </template>
 ```
 
-And in the parent component we won't declare **VArticle.vue** slots explicitly, but create an object with properties representing slots names where the value will be passed and use `v-for` and [Dynamic directive arguments](https://vuejs.org/guide/essentials/template-syntax.html#directives) to resolve the slot:
+And in the parent component we won't declare `VArticle.vue` slots explicitly, but create an object with properties representing slots names where the value will be passed and use `v-for` and [Dynamic directive arguments](https://vuejs.org/guide/essentials/template-syntax.html#directives) to resolve the slot:
 
 ```vue:App.vue
 <script setup>
@@ -228,7 +228,7 @@ const toggle = () => {
 </template>
 ```
 
-The **DIsclosure.vue** component delegates all the visual output to the consumer component via scoped slots so no rendering in it.
+The `DIsclosure.vue` component delegates all the visual output to the consumer component via scoped slots so no rendering in it.
 
 Check it on [The Vue SFC Playground](https://sfc.vuejs.org/#eNp9U8lu2zAQ/ZUpgcIJEEsp0JNqpwt6aM698iJRY5sxRRLkyAsM/3uHlBSr6aKLyJl5bxbOu4iv3heHHkUlVlEF7QkiUu+fpNWdd4Hgu47KuNgHhE1wHSyK8mZK0IW0ytlIQHgiWIMU33qCZ+h6tuHJm1pbIAdn18POHaE2BminI3Q6Ur1HC7rFGtwGWrSut0rbLXiDdc5Z2xZ8qHXM1kR1rCM0LtjseoajZr6tPmBOUINyHYOJkUoxGyVi2iHEcyTsCimkXZVDq9wkX9jKNRKmG61m7R6W0ThaS3GByIU/cBPbrUG4SpFjObrVB1CmjpGj2ldk9gN/Y0RwBjmg6YmcleIV0VC6fVFGqz1fB/oZWNJlSA2feao/+cDhFR9/8MT4eL2+pik5zy2ph2rKcYGFcsbUPuKiGsiG+lNoCuYU+eHmZOn503miTbbbYNiwKudTs6tIZx5MVM5jm7HFbRpwGciaWu23gZ+kXXJFLlTgtd1/Sk5J/KAtsumjP0Hr+obZGsOA7AZ++LblBajgw6M/ZVuutuAJTvRH3dIuBTy+H0GqDzGncdoShhlsmsiAlcTFcjPnCqyzOMXxlqSunsSDGKSw7GpfvERnWSwDcHREKaqpDClYEukuxY7Ix6os40YlnbzEwoVtyaci8F7qDguM3bIJ7hgxMLEUDzOOko0HDMuAlieD4X+cb0L/4B07unIrv2v3L7IHGIV/gYAbuA6qH9vKsxnUnldpnWLuKPR4P3ONOlnD3T2sn6bJJEBxqE2fPO9ut9m8/6VK3r8kRagSipc6/ZIUhkQz6ZRvd1NcfwH9pqz6)
 

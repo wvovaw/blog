@@ -10,7 +10,7 @@ image:
 tags: ["typescript"]
 ---
 
-Let"s say we have a union type that is responsible for the publishing state of article.
+Let's say we have a union type that is responsible for the publishing state of article.
 
 ```typescript:types.ts
 export interface Article {

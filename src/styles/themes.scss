@@ -4,25 +4,25 @@
   --primary-s: 74%;
   --primary-l: 44%;
 
-  --light-bg: hsl(15, 10%, 90%);
-  --light-bg-h: 15;
-  --light-bg-s: 10%;
-  --light-bg-l: 90%;
+  --light-bg: hsl(25, 25%, 95%);
+  --light-bg-h: 25;
+  --light-bg-s: 25%;
+  --light-bg-l: 95%;
 
-  --light-fg: hsl(0, 0%, 5%);
+  --light-fg: hsl(0, 0%, 15%);
   --light-fg-h: 0;
   --light-fg-s: 0%;
-  --light-fg-l: 5%;
+  --light-fg-l: 15%;
 
-  --dark-bg: hsl(0, 0%, 10%);
+  --dark-bg: hsl(0, 0%, 12%);
   --dark-bg-h: 0;
   --dark-bg-s: 0%;
-  --dark-bg-l: 10%;
+  --dark-bg-l: 12%;
 
-  --dark-fg: hsl(0, 0%, 90%);
+  --dark-fg: hsl(0, 0%, 95%);
   --dark-fg-h: 0;
   --dark-fg-s: 0%;
-  --dark-fg-l: 90%;
+  --dark-fg-l: 95%;
 }
 
 $primary: var(--primary);
