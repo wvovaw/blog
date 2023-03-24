@@ -4,6 +4,8 @@
 
 html {
   font-family: 'Open Sans', sans-serif;
+  // TODO: Fix each page theme blinking
+  // transition: background-color 1s ease, color 500ms ease-out;
 
   &.dark-theme {
     background-color: $theme-dark-bg;

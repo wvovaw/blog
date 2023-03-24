@@ -1,6 +1,7 @@
 ---
 // @ts-ignore
 import { Icon } from "astro-iconify";
+import ThemeIcon from "./ThemeIcon.astro";
 
 const currentPath = Astro.url.pathname;
 const menu = [
@@ -10,7 +11,7 @@ const menu = [
 ];
 ---
 
-<div class="nav">
+<nav class="nav">
   <a class="nav__link--iconed" href="/blog/" aria-label="Go to homepage">
     <Icon size={48} name="fluent-emoji-flat:bug" />
   </a>
@@ -28,7 +29,10 @@ const menu = [
       </a>
     ))
   }
-</div>
+  <div class="nav__theme-toggle" >
+    <ThemeIcon />
+  </div>
+</nav>
 <style lang="scss">
   @import "../styles/themes.scss";
   .nav {
@@ -72,6 +76,10 @@ const menu = [
         background-color: $theme-primary;
       }
     }
+    &__theme-toggle {
+      margin: auto 0 ;
+      margin-left: auto;
+    }
   }
 
   .expanded {
@@ -87,7 +95,7 @@ const menu = [
 
       &__link {
         display: inline-block;
-        padding: 15px 20px;
+        padding: 10px 25px;
 
         &--iconed {
           display: inline-block;

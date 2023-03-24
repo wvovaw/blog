@@ -44,8 +44,7 @@ const { title, description, date, href, image } = Astro.props;
 
     &:hover,
     &:focus {
-      // box-shadow: 5px 0px 0px 1px var(--primary);
-      box-shadow: 5px 5px 0px 1px var(--primary);
+      box-shadow: 5px 5px 0px 1px $theme-primary;
       transform: translateX(-2px) translateY(-2px);
     }
 
@@ -60,7 +59,7 @@ const { title, description, date, href, image } = Astro.props;
     }
 
     &__content {
-      margin: 1em;
+      margin: 1.3em;
     }
 
     &__title {
@@ -79,7 +78,7 @@ const { title, description, date, href, image } = Astro.props;
     &__description {
       font: {
         size: 0.85em;
-        weight: 50;
+        weight: 400;
       }
       text-overflow: ellipsis;
       margin: 0.5em 0;
@@ -89,7 +88,7 @@ const { title, description, date, href, image } = Astro.props;
       :global(.dark-theme) & {
         color: theme-lightness($theme-dark-fg, 0.6);
       }
-      margin: 0.2em 0;
+      margin: 0.5em 0;
 
       font: {
         style: italic;

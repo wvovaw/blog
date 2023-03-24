@@ -70,14 +70,16 @@ const url = Astro.request.url;
   <body>
     <div class="rainbow"></div>
     <Header />
-    <h1>{title}</h1>
-    <slot />
+    <main>
+      <h1 class="page__title">{title}</h1>
+      <slot />
+    </main>
     <script>
       import "../scripts/menu.js";
     </script>
     <style lang="scss">
       .rainbow {
-        width: 99vw;
+        width: 100vw;
         height: 3px;
         position: absolute;
         left: 0;
@@ -93,6 +95,14 @@ const url = Astro.request.url;
           rgba(0, 91, 255, 1) 83%,
           rgba(72, 0, 255, 1) 100%
         );
+      }
+      html {
+        overflow-x: hidden;
+      }
+      .page__title {
+        font: {
+          weight: 700;
+        }
       }
     </style>
   </body>

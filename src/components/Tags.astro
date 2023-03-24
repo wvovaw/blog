@@ -34,10 +34,13 @@ if (!tags) tags = allTags;
     
     &__item {
       margin: 0.25em;
-      border: dotted 1px $theme-primary;
+      border: solid 1px $theme-primary;
       color: $theme-primary;
       padding: 0.2em 0.6em;
-      font-size: 1em;
+      font: {
+        size: 1em;
+        weight: 500;
+      }
 
       &::before {
         content: "#";
