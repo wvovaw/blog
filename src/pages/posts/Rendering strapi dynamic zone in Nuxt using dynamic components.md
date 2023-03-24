@@ -12,18 +12,6 @@ tags: ["strapi", "nuxt"]
 
 Creating a dynamic zone on a page is the best solution for those clients who obviously won't be tinkering on the nuxt frontend code base by themselves, but edit a website content in the strapi content manager. Clients may want to move one block on above of another, add or remove some parts of a web page, so they usually ask a web developer to do it. It may cost much time for the developer of the project to make this type of changes and cost client money. Adding strapi dynamic zones saves time and money.
 
-# Index
-
-1. [Prerequisites](#prerequisites)
-2. [In strapi](#In%20Strapi)
-   1. [Add Blocks dynamic zone](#Add%20Blocks%20dynamic%20zone)
-   2. [Create blocks examples](#Create%20blocks%20examples)
-3. [In Nuxt](#In%20Nuxt)
-   1. [Create BlocksDynamicZone.vue component](#Create%20BlocksDynamicZone.vue%20component)
-   2. [Create blocks components](#create%20blocks%20components)
-   3. [Result](#Result)
-4. [Conclusion](#Conclusion)
-
 # Prerequisites
 
 1. Strapi application with pages collection type

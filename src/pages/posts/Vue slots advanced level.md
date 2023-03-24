@@ -12,16 +12,6 @@ tags: ["vue"]
 
 Slots is one of the most used features in vue. We get used to use **Default Slots** and [**Named Slots**](https://vuejs.org/guide/components/slots.html#named-slots) to pass html template in components. But slots also has **two** great features - [**Dynamic Slot Names**](https://vuejs.org/guide/components/slots.html#dynamic-slot-names) and [**Scoped Slots**](https://vuejs.org/guide/components/slots.html#scoped-slots). That is all this article is about.
 
-# Index
-
-1. [Dynamic Slot Names](#Dynamic%20Slot%20Names)
-2. [Scoped Slots](#Scoped%20Slots)
-   1. [Principe](#Principe)
-   2. [Scoped Slots example](#Scoped%20Slots%20example)
-   3. [Named Scoped Slots example](#Named%20Scoped%20Slots%20example)
-3. [Renderless Components](#Renderless%20Components)
-4. [Conclusion](#Conclusion)
-
 # Dynamic Slot Names
 
 [Official vue documentation](https://vuejs.org/guide/components/slots.html#named-slots) says:

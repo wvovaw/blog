@@ -2,15 +2,18 @@
 
 ## General
 
-- [ ] SEO
-- [ ] Sitemap
-- [ ] Nice fonts
+- [x] SEO
+- [x] Sitemap
+- [x] Nice fonts
+- [ ] Add little animations
+- [ ] Views metrica, feedback buttons
 
 ## Blogs
 
+- [x] Anchors on the markdown headings
 - [ ] Posts filtering (date, tags list, author?)
 - [ ] Pagination for blogs lists
-- [ ] Related posts section
+- [ ] Related posts section ( or Read next)
 
 ## Ontstanding pages
 
@@ -19,4 +22,4 @@
 - [ ] Kinopoisk stats
 
 ## Deployment
-- [ ] Github pipeline
+- [x] Github pipeline

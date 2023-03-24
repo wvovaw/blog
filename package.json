@@ -20,5 +20,10 @@
     "remark-code-titles": "^0.1.2",
     "sass": "^1.59.3",
     "vue": "^3.2.30"
+  },
+  "devDependencies": {
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-slug": "^5.1.0",
+    "rehype-toc": "^3.0.2"
   }
 }
