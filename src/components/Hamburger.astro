@@ -1,28 +1,49 @@
---- 
 ---
-<div class="hamburger">
-  <span class="line"></span>
-  <span class="line"></span>
-  <span class="line"></span>
+import Icon from "astro-iconify";
+---
+
+<div class="button">
+  <div class="hamburger">
+    <Icon name="twemoji:hamburger" size={48} />
+  </div>
+  <div class="cross hidden">
+    <Icon name="twemoji:cross-mark" size={48} />
+  </div>
 </div>
 
-<style>
-.hamburger {
-  padding-right: 20px;
-  cursor: pointer;
-}
-
-.hamburger .line {
-  display: block;
-  width: 40px;
-  height: 5px;
-  margin-bottom: 10px;
-  background-color: var(--primary);
-}
-
-@media screen and (min-width: 636px) {
-  .hamburger {
-    display: none;
+<style lang="scss">
+  svg {
+    transition: all 200ms ease;
   }
-}
+  .button {
+    display: flex;
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .cross, .hamburger {
+    display: flex;
+    justify-content: end;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .cross {
+    position:absolute;
+  }
+  .hidden {
+    & svg {
+      transform: rotateX(90deg);
+    }
+  }
+
+  @media screen and (min-width: 636px) {
+    .hamburger {
+      display: none;
+    }
+    .cross {
+      display: none;
+    }
+  }
 </style>

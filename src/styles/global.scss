@@ -3,7 +3,7 @@
 @import "fonts.css";
 
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   // TODO: Fix each page theme blinking
   // transition: background-color 1s ease, color 500ms ease-out;
 
@@ -16,6 +16,11 @@ html {
     background-color: $theme-light-bg;
     color: $theme-light-fg;
   }
+}
+
+.prevent-scroll {
+  height: 100%;
+  overflow: hidden;
 }
 
 body {

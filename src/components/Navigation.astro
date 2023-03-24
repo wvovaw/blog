@@ -29,18 +29,33 @@ const menu = [
       </a>
     ))
   }
-  <div class="nav__theme-toggle" >
+  <div class="nav__theme-toggle">
     <ThemeIcon />
   </div>
 </nav>
 <style lang="scss">
   @import "../styles/themes.scss";
   .nav {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 500ms ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    top: 5rem;
-    left: 48px;
-    display: none;
-    margin: 2rem 0;
+    height: 100%;
+
+    :global(.light-theme) & {
+      background: $theme-light-bg;
+    }
+    :global(.dark-theme) & {
+      background: $theme-dark-bg;
+    }
+
+    &__theme-toggle {
+      display: flex;
+      justify-content: center;
+    }
 
     &__link {
       display: block;
@@ -76,18 +91,34 @@ const menu = [
         background-color: $theme-primary;
       }
     }
-    &__theme-toggle {
-      margin: auto 0 ;
-      margin-left: auto;
+  }
+
+  @media screen and (max-width: 635px) {
+    .expanded {
+      display: unset;
+      visibility: visible;
+      opacity: 1;
+      display: grid;
+      place-content: center;
+
+      .nav {
+        &__link {
+          margin: 1em auto;
+          padding: 0.8em 0.5em;
+          font: {
+            size: 2.5em;
+          }
+        }
+      }
     }
   }
-
-  .expanded {
-    display: unset;
-  }
-
   @media screen and (min-width: 636px) {
     .nav {
+      visibility: visible;
+      opacity: 1;
+      top: 5rem;
+      left: 48px;
+      margin: 2rem 0;
       display: flex;
       position: static;
       width: auto;
@@ -101,6 +132,11 @@ const menu = [
           display: inline-block;
           padding: 0 1em;
         }
+      }
+      &__theme-toggle {
+        visibility: visible;
+        margin: auto 0;
+        margin-left: auto;
       }
     }
   }
