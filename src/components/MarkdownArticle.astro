@@ -281,6 +281,8 @@
     $color-code-bg,
     $color-code-file-fg,
     $color-code-file-bg,
+    $color-inline-code-bg,
+    $color-inline-code-fg,
     $color-blockquote-fg,
     $color-blockquote-bg
   ) {
@@ -312,8 +314,8 @@
     hr {
       border-top-color: $color-primary;
     }
-    :not(pre) >  code {
-      background-color: theme-lightness($color-bg, 0.8);
+    :not(pre) > code {
+      background-color: $color-inline-code-bg;
     }
     pre {
       border-color: $color-primary;
@@ -355,7 +357,7 @@
     th,
     blockquote {
       color: $color-blockquote-fg;
-      border-left-color: $color-primary-lighter;
+      border-left-color: $color-primary-lightest;
       background-color: $color-blockquote-bg;
     }
     details {
@@ -390,6 +392,8 @@
     $color-code-bg: theme-lightness($color-bg, 0.85);
     $color-code-file-bg: theme-lightness($color-bg, 0.8);
     $color-code-file-fg: theme-lightness($color-fg, 0.6);
+    $color-inline-code-bg: theme-lightness($color-bg, 0.8);
+    $color-inline-code-fg: theme-lightness($color-fg, 0.85);
     $color-blockquote-bg: theme-lightness($color-bg, 0.85);
     $color-blockquote-fg: theme-lightness($color-fg, 0.85);
 
@@ -400,6 +404,8 @@
       $color-code-bg,
       $color-code-file-fg,
       $color-code-file-bg,
+      $color-inline-code-bg,
+      $color-inline-code-fg,
       $color-blockquote-fg,
       $color-blockquote-bg
     );
@@ -409,10 +415,12 @@
     $color-primary: $theme-primary;
     $color-fg: $theme-light-fg;
     $color-bg: $theme-light-bg;
-    $color-code-bg: theme-lightness($color-bg, 0.23);
-    $color-code-file-bg: theme-lightness($color-bg, 0.9);
+    $color-code-bg: #e0f4e5;
+    $color-code-file-bg: #c5ecba;
     $color-code-file-fg: theme-lightness($color-fg, 0.9);
-    $color-blockquote-bg: theme-lightness($color-bg, 0.92);
+    $color-inline-code-bg: #cbe1d0;
+    $color-inline-code-fg: theme-lightness($color-fg, 0.85);
+    $color-blockquote-bg: #e0f4e5;
     $color-blockquote-fg: theme-lightness($color-fg, 0.85);
 
     @include apply_colors(
@@ -422,6 +430,8 @@
       $color-code-bg,
       $color-code-file-fg,
       $color-code-file-bg,
+      $color-inline-code-bg,
+      $color-inline-code-fg,
       $color-blockquote-fg,
       $color-blockquote-bg
     );

@@ -38,7 +38,16 @@ import Icon from "astro-iconify";
     }
     .link {
       transition: filter 200ms ease;
-      &:hover {
+    }
+    :global(.light-theme) & {
+      color: $theme-light-fg;
+      .link:hover {
+        filter: brightness(0%);
+      }
+    }
+    :global(.dark-theme) & {
+      color: $theme-dark-fg;
+      .link:hover {
         filter: brightness(50%);
       }
     }
