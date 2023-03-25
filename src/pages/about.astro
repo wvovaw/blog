@@ -5,8 +5,69 @@ const pageTitle = "🫠 About Me";
 const description = "Passionate web developer";
 ---
 
-<Default
-  title={pageTitle}
-  description={description}
->
+<Default title={pageTitle} description={description}>
+  <h1 class="iam">I am...</h1>
+  <p>Continuously learning everything related to web development 📚</p>
+  <p>
+    Building websites with
+    <strong class="vue">vue</strong>,
+    <strong class="tailwind">tailwind</strong>,
+    <strong class="nuxt">nuxt</strong>,
+    <strong class="astro">astro</strong>,
+    <strong class="strapi">strapi</strong>,
+    <strong class="storyblok">storyblok</strong>
+  </p>
+  <p>Begining in freelance 💹</p>
+  <p>Wasting the best time of my life staring at monitors 😵‍💫</p>
+  <img alt="nyan cat gif" src="/blog/nyan.gif" width="400" height="400"/>
 </Default>
+
+<style lang="scss">
+  p {
+    font: {
+      size: 1.4em;
+      weight: 100;
+    }
+    line-height: 1.75em;
+
+    strong {
+      font-weight: 600;
+
+      &.vue {
+        color: #42b883;
+      }
+      &.nuxt {
+        color: #00DC82;
+      }
+      &.tailwind {
+        color: #38bdf8;
+      }
+      &.astro {
+        color: #7d0aaa;
+      }
+      &.strapi {
+        color: #271fe0;
+      }
+      &.storyblok {
+        color: #00B3B0;
+      }
+    }
+  }
+  .iam {
+    margin-top: 0.6em;
+    font: {
+      size: 4em;
+      weight: 900;
+    }
+    background: rgb(29, 195, 73);
+    background: rgb(29, 195, 73);
+    background: radial-gradient(
+      circle,
+      rgba(29, 195, 73, 1) 0%,
+      rgba(81, 131, 164, 1) 64%,
+      rgba(131, 70, 252, 1) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>

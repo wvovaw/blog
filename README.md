@@ -17,8 +17,8 @@
 
 ## Ontstanding pages
 
-- [ ] About me page
-- [ ] Homepage
+- [x] About me page
+- [x] Homepage
 - [ ] Kinopoisk stats
 
 ## Deployment

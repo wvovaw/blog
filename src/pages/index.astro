@@ -4,17 +4,19 @@ const pageTitle = "🏠 Home page";
 const description = "This is my blog subsite";
 ---
 
-<Default
-  title={pageTitle}
-  description={description}
->
-  <main>
+<Default title={pageTitle} description={description}>
+  <div>
     <h2>This is my blog subsite</h2>
-    <p>It also has some other standalone pages with different content that I found interesting. Have fun 🫰</p>
-  </main>
+    <p>
+      It also has some other standalone pages with different content that I
+      found interesting. Have fun 🫰
+    </p>
+    <img alt="rain gif" src="/blog/rain.gif" width="500" height="374"/>
+  </div>
 </Default>
 
 <style lang="scss">
-  main {
+  img {
+    margin: auto;
   }
 </style>
