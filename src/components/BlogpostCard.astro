@@ -36,7 +36,8 @@ const { title, description, date, href, image } = Astro.props;
     transition: box-shadow 200ms ease-in, transform 200ms ease-in;
 
     :global(.light-theme) & {
-      background: theme-lightness($theme-light-bg, 0.87);
+      // background: theme-lightness($theme-light-bg, 1.0);
+      border: 1px solid $theme-light-fg;
     }
     :global(.dark-theme) & {
       background: theme-lightness($theme-dark-bg, 1.4);
