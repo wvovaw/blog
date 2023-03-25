@@ -44,15 +44,7 @@
     }
     return "light-theme";
   })();
-
-  if (theme === "light-theme") {
-    document.documentElement.classList.remove("dark-theme");
-    document.documentElement.classList.add("light-theme");
-  } else {
-    document.documentElement.classList.remove("light-theme");
-    document.documentElement.classList.add("dark-theme");
-  }
-
+  document.documentElement.className = theme;
   window.localStorage.setItem("theme", theme);
 
   const handleToggleClick = () => {

@@ -1,13 +1,51 @@
 ---
+import Icon from "astro-iconify";
 ---
 
-<style>
+<footer>
+  <div class="license">
+    <a class="link" href="https://wvovaw.github.com/">V. Ivakhno</a><Icon
+      name="ri:creative-commons-fill"
+      size={18}
+    /> 2023
+  </div>
+  <nav>
+    <a class="link" href="/blog/about">About</a>
+    <a class="link" href="/blog/posts">Posts</a>
+  </nav>
+</footer>
+
+<style lang="scss">
+  @import "../styles/themes.scss";
   footer {
+    position: absolute;
+    bottom: 0;
+    max-width: 55rem;
+    width: 100%;
+    height: 2.5rem;
     display: flex;
-    gap: 1rem;
+    justify-content: space-between;
     margin-top: 2rem;
+
+    color: $theme-dark-fg;
+    font: {
+      size: 0.75rem;
+    }
+
+    .license {
+      display: inline-flex;
+      gap: 0.5em;
+    }
+    .link {
+      transition: filter 200ms ease;
+      &:hover {
+        filter: brightness(50%);
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+    gap: 1em;
   }
 </style>
-
-<footer>
-</footer>

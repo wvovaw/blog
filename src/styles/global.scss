@@ -4,8 +4,11 @@
 
 html {
   font-family: "Open Sans", sans-serif;
+  scrollbar-gutter: stable both-edges;
+  scroll-behavior: smooth;
+
   // TODO: Fix each page theme blinking
-  // transition: background-color 1s ease, color 500ms ease-out;
+  // transition: background-color 500ms ease, color 500ms ease-out;
 
   &.dark-theme {
     background-color: $theme-dark-bg;
@@ -26,7 +29,7 @@ html {
 body {
   margin: 0 auto;
   width: 100%;
-  max-width: 100ch;
+  max-width: 55rem;
   padding: 1rem;
   line-height: 1.5;
 }
