@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-iconify";
+---
+
+<Icon
+  class="go-up hidden"
+  name="material-symbols:arrow-circle-up-rounded"
+  size={42}
+/>
+<style lang="scss">
+  @import "../styles/themes.scss";
+  .go-up {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    opacity: 0.3;
+    transition: color 300ms ease, visibility 150ms ease-in, opacity 150ms ease-in;
+    z-index: 30;
+    cursor: pointer;
+
+    &:hover {
+      color: $theme-primary;
+    }
+  }
+
+  .hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 150ms ease-out, opacity 150ms ease-out;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .go-up {
+      display: none;
+    }
+  }
+</style>
+<script lang="js" is:raw>
+  document.querySelector(".go-up").addEventListener("click", () => {
+    window.scrollTo(0, 0);
+  });
+  const showGoUpButton = () => {
+    if (window.scrollY > 500) {
+      document.querySelector(".go-up").classList.remove("hidden");
+      window.removeEventListener("scroll", showGoUpButton);
+      window.addEventListener("scroll", hideGoUpButton);
+    }
+  };
+  const hideGoUpButton = () => {
+    if (window.scrollY < 500) {
+      document.querySelector(".go-up").classList.add("hidden");
+      window.addEventListener("scroll", showGoUpButton);
+      window.removeEventListener("scroll", hideGoUpButton);
+    }
+  };
+  window.addEventListener("scroll", showGoUpButton);
+</script>

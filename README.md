@@ -11,15 +11,16 @@
 ## Blogs
 
 - [x] Anchors on the markdown headings
-- [ ] Posts filtering (date, tags list, author?)
+- [ ] Posts filtering (date, tags list)
 - [ ] Pagination for blogs lists
 - [ ] Related posts section ( or Read next)
 
-## Ontstanding pages
+##  pages
 
 - [x] About me page
 - [x] Homepage
 - [ ] Kinopoisk stats
+- [ ] three.js prikol
 
 ## Deployment
 - [x] Github pipeline
