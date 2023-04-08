@@ -5,7 +5,7 @@ pubDate: 2023-03-08
 description: "In this post you'll know how to infer enum types from readonly list to keep the single source of truth"
 author: "wvovaw"
 image:
-  url: "/blog/posts/dynamic_enums_ts/banner.png"
+  url: "/blog/posts/dynamic-enums-ts/banner.png"
   alt: "Typescript code"
 tags: ["typescript"]
 ---

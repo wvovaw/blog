@@ -5,7 +5,7 @@ pubDate: 2023-04-09
 description: "This guide is about how to get Nuxt 3 + Strapi 4 application up and running on a single VPS"
 author: "wvovaw"
 image:
-  url: "/blog/posts/deploying_nuxt_and_strapi_with_nginx/banner.png"
+  url: "/blog/posts/deploying-nuxt-and-strapi-with-nginx/banner.png"
   alt: "Deploying Nuxt 3 and Strapi 4 with Nginx on a VPS"
 tags: ["nuxt", "strapi", "nginx", "pm2", "certbot", "ubuntu", "vps"]
 ---
