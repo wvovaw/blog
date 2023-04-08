@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import vue from "@astrojs/vue";
 import image from "@astrojs/image";
 import remarkCodeTitles from "remark-code-titles";
+import remarkObsidianCallout from "remark-obsidian-callout";
 import astroRemark from "@astrojs/markdown-remark";
 
 import sitemap from "@astrojs/sitemap";
@@ -14,7 +15,7 @@ export default defineConfig({
     shikiConfig: {
       theme: "vitesse-dark",
     },
-    remarkPlugins: [remarkCodeTitles],
+    remarkPlugins: [remarkCodeTitles, remarkObsidianCallout],
     rehypePlugins: [
       "rehype-slug",
       ["rehype-autolink-headings", { behavior: "prepend" }],

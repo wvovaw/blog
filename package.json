@@ -24,6 +24,7 @@
   "devDependencies": {
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
-    "rehype-toc": "^3.0.2"
+    "rehype-toc": "^3.0.2",
+    "remark-obsidian-callout": "^1.1.3"
   }
 }

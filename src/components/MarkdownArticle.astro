@@ -195,6 +195,29 @@ import GoUp from "./GoUp.astro";
       & > p {
         margin: 10px 0;
       }
+
+      &[data-callout] {
+        border: none;
+        padding-bottom: 1em;
+        // mix-blend-mode: lighten;
+        .callout-title {
+          display: flex;
+          gap: 0.5em;
+          align-items: center;
+          margin: 1em 0;
+
+          .callout-title-icon svg {
+            width: 20px;
+            height: 20px;
+          }
+          .callout-title-text {
+            font: {
+              weight: 600;
+              size: 0.9em;
+            }
+          }
+        }
+      }
     }
 
     details {
@@ -286,7 +309,37 @@ import GoUp from "./GoUp.astro";
     $color-inline-code-bg,
     $color-inline-code-fg,
     $color-blockquote-fg,
-    $color-blockquote-bg
+    $color-blockquote-bg,
+    $color-callout-note-fg,
+    $color-callout-note-bg,
+    $color-callout-bug-fg,
+    $color-callout-bug-bg,
+    $color-callout-default-fg,
+    $color-callout-default-bg,
+    $color-callout-danger-fg,
+    $color-callout-danger-bg,
+    $color-callout-example-fg,
+    $color-callout-example-bg,
+    $color-callout-failure-fg,
+    $color-callout-failure-bg,
+    $color-callout-important-fg,
+    $color-callout-important-bg,
+    $color-callout-info-fg,
+    $color-callout-info-bg,
+    $color-callout-question-fg,
+    $color-callout-question-bg,
+    $color-callout-success-fg,
+    $color-callout-success-bg,
+    $color-callout-abstract-fg,
+    $color-callout-abstract-bg,
+    $color-callout-tip-fg,
+    $color-callout-tip-bg,
+    $color-callout-todo-fg,
+    $color-callout-todo-bg,
+    $color-callout-warning-fg,
+    $color-callout-warning-bg,
+    $color-callout-quote-fg,
+    $color-callout-quote-bg
   ) {
     $color-primary-secondary: theme-lightness($color-primary, 0.2);
     $color-primary-lighter: theme-lightness($color-primary, 0.5);
@@ -361,6 +414,85 @@ import GoUp from "./GoUp.astro";
       color: $color-blockquote-fg;
       border-left-color: $color-primary-lightest;
       background-color: $color-blockquote-bg;
+
+      &[data-callout="note"] {
+        background-color: $color-callout-note-bg;
+        .callout-title {
+          color: $color-callout-note-fg;
+        }
+      }
+      &[data-callout="abstract"] {
+        background-color: $color-callout-abstract-bg;
+        .callout-title {
+          color: $color-callout-abstract-fg;
+        }
+      }
+      &[data-callout="info"] {
+        background-color: $color-callout-info-bg;
+        .callout-title {
+          color: $color-callout-info-fg;
+        }
+      }
+      &[data-callout="todo"] {
+        background-color: $color-callout-todo-bg;
+        .callout-title {
+          color: $color-callout-todo-fg;
+        }
+      }
+      &[data-callout="tip"] {
+        background-color: $color-callout-tip-bg;
+        .callout-title {
+          color: $color-callout-tip-fg;
+        }
+      }
+      &[data-callout="success"] {
+        background-color: $color-callout-success-bg;
+        .callout-title {
+          color: $color-callout-success-fg;
+        }
+      }
+      &[data-callout="question"] {
+        background-color: $color-callout-question-bg;
+        .callout-title {
+          color: $color-callout-question-fg;
+        }
+      }
+      &[data-callout="warning"] {
+        background-color: $color-callout-warning-bg;
+        .callout-title {
+          color: $color-callout-warning-fg;
+        }
+      }
+      &[data-callout="failure"] {
+        background-color: $color-callout-failure-bg;
+        .callout-title {
+          color: $color-callout-failure-fg;
+        }
+      }
+      &[data-callout="danger"] {
+        background-color: $color-callout-danger-bg;
+        .callout-title {
+          color: $color-callout-danger-fg;
+        }
+      }
+      &[data-callout="bug"] {
+        background-color: $color-callout-bug-bg;
+        .callout-title {
+          color: $color-callout-bug-fg;
+        }
+      }
+      &[data-callout="example"] {
+        background-color: $color-callout-example-bg;
+        .callout-title {
+          color: $color-callout-example-fg;
+        }
+      }
+      &[data-callout="quote"] {
+        mix-blend-mode: normal;
+        .callout-title {
+          color: $color-blockquote-fg;
+        }
+      }
     }
     details {
       border-left-color: $color-primary;
@@ -398,6 +530,36 @@ import GoUp from "./GoUp.astro";
     $color-inline-code-fg: theme-lightness($color-fg, 0.85);
     $color-blockquote-bg: theme-lightness($color-bg, 0.85);
     $color-blockquote-fg: theme-lightness($color-fg, 0.85);
+    $color-callout-note-fg: theme-alpha($theme-blue, 1);
+    $color-callout-note-bg: theme-alpha($theme-blue, 0.1);
+    $color-callout-bug-fg: theme-alpha($theme-red, 1);
+    $color-callout-bug-bg: theme-alpha($theme-red, 0.1);
+    $color-callout-default-fg: theme-alpha($theme-blue, 1);
+    $color-callout-default-bg: theme-alpha($theme-blue, 0.1);
+    $color-callout-danger-fg: theme-alpha($theme-red, 1);
+    $color-callout-danger-bg: theme-alpha($theme-red, 0.1);
+    $color-callout-example-fg: theme-alpha($theme-purple, 1);
+    $color-callout-example-bg: theme-alpha($theme-purple, 0.1);
+    $color-callout-failure-fg: theme-alpha($theme-red, 1);
+    $color-callout-failure-bg: theme-alpha($theme-red, 0.1);
+    $color-callout-important-fg: theme-alpha($theme-cyan, 1);
+    $color-callout-important-bg: theme-alpha($theme-cyan, 0.1);
+    $color-callout-info-fg: theme-alpha($theme-blue, 1);
+    $color-callout-info-bg: theme-alpha($theme-blue, 0.1);
+    $color-callout-question-fg: theme-alpha($theme-yellow, 1);
+    $color-callout-question-bg: theme-alpha($theme-yellow, 0.1);
+    $color-callout-success-fg: theme-alpha($theme-green, 1);
+    $color-callout-success-bg: theme-alpha($theme-green, 0.1);
+    $color-callout-abstract-fg: theme-alpha($theme-cyan, 1);
+    $color-callout-abstract-bg: theme-alpha($theme-cyan, 0.1);
+    $color-callout-tip-fg: theme-alpha($theme-cyan, 1);
+    $color-callout-tip-bg: theme-alpha($theme-cyan, 0.1);
+    $color-callout-todo-fg: theme-alpha($theme-blue, 1);
+    $color-callout-todo-bg: theme-alpha($theme-blue, 0.1);
+    $color-callout-warning-fg: theme-alpha($theme-orange, 1);
+    $color-callout-warning-bg: theme-alpha($theme-orange, 0.1);
+    $color-callout-quote-fg: $color-blockquote-fg;
+    $color-callout-quote-bg: $color-blockquote-bg;
 
     @include apply_colors(
       $color-primary,
@@ -409,7 +571,37 @@ import GoUp from "./GoUp.astro";
       $color-inline-code-bg,
       $color-inline-code-fg,
       $color-blockquote-fg,
-      $color-blockquote-bg
+      $color-blockquote-bg,
+      $color-callout-note-fg,
+      $color-callout-note-bg,
+      $color-callout-bug-fg,
+      $color-callout-bug-bg,
+      $color-callout-default-fg,
+      $color-callout-default-bg,
+      $color-callout-danger-fg,
+      $color-callout-danger-bg,
+      $color-callout-example-fg,
+      $color-callout-example-bg,
+      $color-callout-failure-fg,
+      $color-callout-failure-bg,
+      $color-callout-important-fg,
+      $color-callout-important-bg,
+      $color-callout-info-fg,
+      $color-callout-info-bg,
+      $color-callout-question-fg,
+      $color-callout-question-bg,
+      $color-callout-success-fg,
+      $color-callout-success-bg,
+      $color-callout-abstract-fg,
+      $color-callout-abstract-bg,
+      $color-callout-tip-fg,
+      $color-callout-tip-bg,
+      $color-callout-todo-fg,
+      $color-callout-todo-bg,
+      $color-callout-warning-fg,
+      $color-callout-warning-bg,
+      $color-callout-quote-fg,
+      $color-callout-quote-bg
     );
   }
 
@@ -424,6 +616,36 @@ import GoUp from "./GoUp.astro";
     $color-inline-code-fg: theme-lightness($color-fg, 0.85);
     $color-blockquote-bg: #e0f4e5;
     $color-blockquote-fg: theme-lightness($color-fg, 0.85);
+    $color-callout-note-fg: theme-alpha($theme-blue, 1);
+    $color-callout-note-bg: theme-alpha($theme-blue, 0.2);
+    $color-callout-bug-fg: theme-alpha($theme-red, 1);
+    $color-callout-bug-bg: theme-alpha($theme-red, 0.2);
+    $color-callout-default-fg: theme-alpha($theme-blue, 1);
+    $color-callout-default-bg: theme-alpha($theme-blue, 0.2);
+    $color-callout-danger-fg: theme-alpha($theme-red, 1);
+    $color-callout-danger-bg: theme-alpha($theme-red, 0.2);
+    $color-callout-example-fg: theme-alpha($theme-purple, 1);
+    $color-callout-example-bg: theme-alpha($theme-purple, 0.2);
+    $color-callout-failure-fg: theme-alpha($theme-red, 1);
+    $color-callout-failure-bg: theme-alpha($theme-red, 0.2);
+    $color-callout-important-fg: theme-lightness($theme-cyan, 0.6);
+    $color-callout-important-bg: theme-alpha($theme-cyan, 0.4);
+    $color-callout-info-fg: theme-alpha($theme-blue, 1);
+    $color-callout-info-bg: theme-alpha($theme-blue, 0.2);
+    $color-callout-question-fg: theme-lightness($theme-yellow, 0.8);
+    $color-callout-question-bg: theme-alpha($theme-yellow, 0.2);
+    $color-callout-success-fg: theme-alpha($theme-green, 1);
+    $color-callout-success-bg: theme-alpha($theme-green, 0.2);
+    $color-callout-abstract-fg: theme-lightness($theme-cyan, 0.6);
+    $color-callout-abstract-bg: theme-alpha($theme-cyan, 0.4);
+    $color-callout-tip-fg: theme-lightness($theme-cyan, 0.6);
+    $color-callout-tip-bg: theme-alpha($theme-cyan, 0.3);
+    $color-callout-todo-fg: theme-alpha($theme-blue, 1);
+    $color-callout-todo-bg: theme-alpha($theme-blue, 0.2);
+    $color-callout-warning-fg: theme-alpha($theme-orange, 1);
+    $color-callout-warning-bg: theme-alpha($theme-orange, 0.2);
+    $color-callout-quote-fg: $color-blockquote-fg;
+    $color-callout-quote-bg: $color-blockquote-bg;
 
     @include apply_colors(
       $color-primary,
@@ -435,7 +657,37 @@ import GoUp from "./GoUp.astro";
       $color-inline-code-bg,
       $color-inline-code-fg,
       $color-blockquote-fg,
-      $color-blockquote-bg
+      $color-blockquote-bg,
+      $color-callout-note-fg,
+      $color-callout-note-bg,
+      $color-callout-bug-fg,
+      $color-callout-bug-bg,
+      $color-callout-default-fg,
+      $color-callout-default-bg,
+      $color-callout-danger-fg,
+      $color-callout-danger-bg,
+      $color-callout-example-fg,
+      $color-callout-example-bg,
+      $color-callout-failure-fg,
+      $color-callout-failure-bg,
+      $color-callout-important-fg,
+      $color-callout-important-bg,
+      $color-callout-info-fg,
+      $color-callout-info-bg,
+      $color-callout-question-fg,
+      $color-callout-question-bg,
+      $color-callout-success-fg,
+      $color-callout-success-bg,
+      $color-callout-abstract-fg,
+      $color-callout-abstract-bg,
+      $color-callout-tip-fg,
+      $color-callout-tip-bg,
+      $color-callout-todo-fg,
+      $color-callout-todo-bg,
+      $color-callout-warning-fg,
+      $color-callout-warning-bg,
+      $color-callout-quote-fg,
+      $color-callout-quote-bg
     );
   }
 </style>
