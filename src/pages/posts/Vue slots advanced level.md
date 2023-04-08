@@ -16,6 +16,7 @@ Slots is one of the most used features in vue. We get used to use **Default Slot
 
 [Official vue documentation](https://vuejs.org/guide/components/slots.html#named-slots) says:
 
+> [!quote] Vue docs
 > [Dynamic directive arguments](https://vuejs.org/guide/essentials/template-syntax.html#directives) also work on `v-slot`, allowing the definition of dynamic slot names:
 
 ```vue
@@ -163,10 +164,10 @@ const someObject = { title: "Title", text: "Lorem ipsum...", views: 12 };
 </template>
 ```
 
-> **⚠️ WARNING**
+> [!warning] Warning
 > Slots _name_ attribute won't be included in the props because it is reserved
 
-> **⚠️ WARNING**
+> [!warning] Warning
 > If you are mixing named slots with the default scoped slot, you need to use an explicit `<template>` tag for the default slot as in above. Attempting to place the `v-slot` directive directly on the component will result in a compilation error.
 
 Check it on [The Vue SFC Playground](https://sfc.vuejs.org/#eNp9U8Fu2zAM/RVOO3QDEhvZ0XMDDNthhxU7bMAuujg2kzqwJUGinRWB/72krdZOWiSHgCIfH/3Ep7P65lzSd6gylYfS144gIHVuq03dOusJHp6+W44MGoK9ty3cJekiJ8132uTp1M19fCBsXVMQyonyBXpMcOoFAB8r3BddQ/danYHwP62gtB2PGrSKYIDcbSHiIDSWMjhPYBgGCWPHAHkqHz5OSC++4XIk/4/zJIiDYPyNgyT5OmWCzMyMucFceKrLZiKnmhpcRU19jaew0MRdj5utqBDUNIATr0U31qLCWRVXgiuMFCPjMAV8/ZJ/V3u+XBdnFmW1UtOW123hkmOwhn1wltvQsRC04nuY7kcr3rWctXokciFL07AvxQDHkFh/SDlKPK+ibjHB0K533p4CeibWarXgSDnZo197NBV69Lc4r6BveIV20GZgKVeufMfSmkprAsHBI1JtDg8YQnFAuOfxP7FpLPyzvqk+aPV1BosF/pBnOON+8CEx9vTp8wIRbIu/d0csiRFxp6LorwQsfdykJH5Zjy3ULnRtkiRSGbeXweYLDEx46xVVdf+yX3EnZELKTrvSohVk43vg0ob9xpSMvug0RSsWFV2Cjs9hlnmzK1qcG/v1rjYVp2b5l515On3z0nDDM71FkY0=)
@@ -175,7 +176,7 @@ Check it on [The Vue SFC Playground](https://sfc.vuejs.org/#eNp9U8Fu2zAM/RVOO3QD
 
 Using **Scoped Slots** we can make components that only encapsulate logic and do not render anything by themselves - visual output is fully delegated to the consumer component. This example represents **Renderless Disclosure.vue** component which only handles the _show / hide_ state and the _toggle_ method. The show flag and the toggle method is passed as slot props.
 
-> **❕ NOTE**
+> [!info] Info
 > This approach is used in component libraries like [HeadlessUI](https://headlessui.com/vue/disclosure#using-slots)
 
 ```vue:App.vue

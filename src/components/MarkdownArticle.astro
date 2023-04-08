@@ -54,11 +54,11 @@ import GoUp from "./GoUp.astro";
       position: relative;
       font-size: 2.5rem;
       margin-bottom: 5px;
+      border-bottom: 1px solid;
     }
     h2 {
       padding-bottom: 0.5rem;
       font-size: 2.2rem;
-      border-bottom: 1px solid;
     }
     h3 {
       font-size: 1.5rem;
@@ -218,6 +218,22 @@ import GoUp from "./GoUp.astro";
           }
         }
       }
+      /*
+      // TODO: Add styles for collapsable callouts (add JS too)
+      &[data-expandable] {
+        &[data-expanded="true"] {
+          .callout-title:after {
+            content: "open"
+          }
+        }
+
+        &[data-expanded="false"] {
+          .callout-title:after {
+            content: "close"
+          }
+        }
+      }
+      */
     }
 
     details {
@@ -358,7 +374,7 @@ import GoUp from "./GoUp.astro";
       }
     }
     h2 {
-      border-bottom: 1px solid $color-fg;
+      // border-bottom: 1px solid $color-fg;
     }
     strong {
       color: $color-primary;

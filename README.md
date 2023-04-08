@@ -15,6 +15,7 @@
 - [ ] Pagination for blogs lists
 - [ ] Related posts section ( or Read next)
 - [ ] Different images for light and dark theme
+- [ ] Fix code highlighting (this seemes to be a dope --> https://rehype-pretty-code.netlify.app/)
 
 ##  pages
 
