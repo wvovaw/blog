@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import vue from "@astrojs/vue";
 import remarkCodeTitles from "remark-code-titles";
 import remarkObsidianCallout from "remark-obsidian-callout";
 import astroRemark from "@astrojs/markdown-remark";
@@ -21,5 +20,5 @@ export default defineConfig({
       ["rehype-toc", { headings: ["h1", "h2", "h3"], placeholder: "TOC" }],
     ],
   },
-  integrations: [vue(), sitemap({})],
+  integrations: [sitemap({})],
 });

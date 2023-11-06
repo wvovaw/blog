@@ -11,6 +11,7 @@
     "format": "prettier --write --cache --config .prettierrc.mjs ./src/**/*.{ts,js,tsx,jsx,astro,vue,css,scss,md,json,ya?ml}"
   },
   "dependencies": {
+    "@astrojs/check": "^0.3.1",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.3",
     "astro": "^3.4.3",
@@ -18,6 +19,7 @@
     "lucide-astro": "^0.292.0",
     "remark-code-titles": "^0.1.2",
     "sass": "^1.69.5",
+    "typescript": "^5.2.2",
     "vue": "^3.2.30"
   },
   "devDependencies": {
