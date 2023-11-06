@@ -74,7 +74,7 @@ const url = Astro.request.url;
     <ViewTransitions />
   </head>
   <div class="rainbow"></div>
-  <Header transition:persist />
+  <Header transition:persist="header" />
   <main>
     <h1 class="page__title">{title}</h1>
     <slot />

@@ -1,5 +1,5 @@
 ---
-import Icon from "astro-iconify";
+import { UserSquare, Calendar } from "lucide-astro";
 import Default from "./Default.astro";
 import Tags from "../components/Tags.astro";
 import Separator from "../components/Separator.astro";
@@ -15,20 +15,11 @@ const { frontmatter } = Astro.props;
 >
   <div class="metadata">
     <div class="metadata__author">
-      <Icon
-        class="metadata__icon"
-        name="material-symbols:person-rounded"
-        size={24}
-      />
+      <UserSquare class="metadata__icon" size={24} />
       {frontmatter.author}
     </div>
-    <Icon name="mdi:star-four-points-small" size={24} />
     <div class="metadata__date">
-      <Icon
-        class="metadata__icon"
-        name="material-symbols:calendar-today"
-        size={24}
-      />
+      <Calendar class="metadata__icon" size={24} />
       <time class="metadata__time" datetime={frontmatter.date}>
         {new Date(frontmatter.pubDate).toDateString()}
       </time>
@@ -53,6 +44,7 @@ const { frontmatter } = Astro.props;
 <style lang="scss">
   .metadata {
     display: inline-flex;
+    gap: 1em;
     text-align: center;
     margin-bottom: 1em;
     color: rgb(112, 112, 112);

@@ -15,8 +15,8 @@
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/vue": "^3.0.3",
     "astro": "^3.4.3",
-    "astro-iconify": "^1.2.0",
     "astro-seo": "^0.8.0",
+    "lucide-astro": "^0.292.0",
     "remark-code-titles": "^0.1.2",
     "sass": "^1.69.5",
     "vue": "^3.2.30"
