@@ -6,7 +6,7 @@ const randomMessage = () =>
   props.messages[Math.floor(Math.random() * props.messages.length)];
 
 const greeting = ref("");
-onMounted(() => greeting.value = randomMessage());
+onMounted(() => (greeting.value = randomMessage()));
 </script>
 
 <template>
@@ -23,12 +23,12 @@ button {
   border: 1px solid var(--primary);
   padding: 1em 1.5em;
   color: var(--primary);
-  
+
   font: {
     weight: 900;
     size: 0.8em;
   }
-  
+
   text: {
     transform: uppercase;
   }

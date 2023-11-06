@@ -8,10 +8,7 @@ const description = "Here is all the blog posts I've ever made";
 const allPosts = await Astro.glob("./posts/**/*.md");
 ---
 
-<Default
-  title={pageTitle}
-  description={description}
->
+<Default title={pageTitle} description={description}>
   <Tags />
   <BlogpostsGrid posts={allPosts} />
 </Default>

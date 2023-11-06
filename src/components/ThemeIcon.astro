@@ -61,7 +61,14 @@
     localStorage.setItem("theme", isDark ? "dark-theme" : "light-theme");
   };
 
-  document
-    .getElementById("themeToggle")
-    .addEventListener("click", handleToggleClick);
+  document.addEventListener("astro:page-load", () => {
+    document
+      .getElementById("themeToggle")
+      .addEventListener("click", handleToggleClick);
+  });
+  document.addEventListener("astro:after-swap", () => {
+    localStorage.getItem("theme") === "dark-theme"
+      ? document.documentElement.classList.add("dark-theme")
+      : document.documentElement.classList.add("light-theme");
+  });
 </script>

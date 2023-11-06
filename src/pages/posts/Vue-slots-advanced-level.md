@@ -84,7 +84,6 @@ Check it on [The Vue SFC Playground](https://sfc.vuejs.org/#eNp9Uk1PwzAM/StWOADS
 
 Scoped slots is the mechanism of passing child components data up to the ~~parent component~~ template that will be rendered in the place of the slot. To do this `<slot />` default component may accept attributes just like components accept props:
 
-
 ![slots diagram](/blog/posts/advanced-vue-slots/slots-diagram.png)
 
 ## Scoped Slots example

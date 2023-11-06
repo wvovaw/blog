@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write --cache --config .prettierrc.mjs ./src/**/*.{ts,js,astro,vue,css,scss,md,json,ya?ml}"
   },
   "dependencies": {
     "@astrojs/rss": "^3.0.0",
@@ -21,6 +22,8 @@
     "vue": "^3.2.30"
   },
   "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
     "rehype-toc": "^3.0.2",

@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 
   return uniqueTags.map((tag) => {
     const postsWithTag = allPosts.filter((post) =>
-      post.frontmatter.tags.includes(tag)
+      post.frontmatter.tags.includes(tag),
     );
     return {
       params: { tag },
@@ -23,10 +23,7 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<Default
-  title={"🏷️ " + tag}
-  description={"Posts including tag " + tag }
->
+<Default title={"🏷️ " + tag} description={"Posts including tag " + tag}>
   <p>Posts including tag <span class="tag">{tag}</span></p>
   <BlogpostsGrid posts={posts} />
 </Default>
@@ -34,6 +31,6 @@ const { posts } = Astro.props;
 <style lang="scss">
   @import "../../../styles/themes.scss";
   .tag {
-    color: $theme-primary
+    color: $theme-primary;
   }
 </style>

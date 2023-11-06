@@ -14,7 +14,7 @@ tags: ["nuxt", "strapi", "nginx", "pm2", "certbot", "ubuntu", "vps"]
 
 # Installing and configuring software
 
-First of all we install the software that we will need to manage our machine.  Our system needs **build-essential**, **git**, **ufw** and **nginx** to be installed. Update the system and install them and other needed software that eventually may not be installed by default for some reason like curl and snapd
+First of all we install the software that we will need to manage our machine. Our system needs **build-essential**, **git**, **ufw** and **nginx** to be installed. Update the system and install them and other needed software that eventually may not be installed by default for some reason like curl and snapd
 
 ```sh
 apt update && apt upgrade
@@ -69,7 +69,7 @@ ufw enable
 
 ## Setup Nginx with Certbot
 
-We will be using Nginx as a proxy server. We already have Nginx installed but  not Certbot. Official Certbot documentation recommends us to install it from snap store so we do
+We will be using Nginx as a proxy server. We already have Nginx installed but not Certbot. Official Certbot documentation recommends us to install it from snap store so we do
 
 ### Install Certbot
 
@@ -101,14 +101,14 @@ certbot --nginx
 
 Enter your email, Accept TOS and enter your domain name `your.domain,www.your.domain`
 
-After you  successfully receive certificate Certbot automatically generates basic Nginx configuration with your certificates deployed. Go and check `https://your.domain` You will **Welcome Nginx** page if everything is ok.
+After you successfully receive certificate Certbot automatically generates basic Nginx configuration with your certificates deployed. Go and check `https://your.domain` You will **Welcome Nginx** page if everything is ok.
 
 > [!tip] Tip
 > Certbot will renew certificates automatically before they expire
 
 ## Setup Node
 
-Nuxt and Strapi are both run on **Node.js** so we need to install it. We will use [**NVM**](https://github.com/nvm-sh/nvm) because it is the best way to install Node.js and the easiest way to manage its versions. Strapi 4 requires Node LTS versions so I will use *v16* for it but for Nuxt 3 I'm going to use the latest (v19.8.1 at this moment).
+Nuxt and Strapi are both run on **Node.js** so we need to install it. We will use [**NVM**](https://github.com/nvm-sh/nvm) because it is the best way to install Node.js and the easiest way to manage its versions. Strapi 4 requires Node LTS versions so I will use _v16_ for it but for Nuxt 3 I'm going to use the latest (v19.8.1 at this moment).
 
 ### Intall NVM and Node.js
 
@@ -142,7 +142,7 @@ npm install -g yarn
 
 ### Install PM2
 
-**PM2** stands for *process manager*. We will use it to orchestrate Nuxt, Strapi processes and some shell scripts.
+**PM2** stands for _process manager_. We will use it to orchestrate Nuxt, Strapi processes and some shell scripts.
 
 Install PM2 on the main v19 Node version
 
@@ -157,7 +157,7 @@ yarn global add pm2
 
 First of all we need to establish connection between our Github and server to be able to fetch from and push to our private repository. For that purpose I create password protected ssh key, add it on my Github. [Read official Github docs about this](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-Generate new key.  Use email that you use to sign your commits and don't leave the password empty!
+Generate new key. Use email that you use to sign your commits and don't leave the password empty!
 
 ```sh
 ssh-keygen -t ed25519 -C "your@email.com"
@@ -213,7 +213,7 @@ module.exports = ({ env }) => ({
 
 This will aware Strapi that it's served on `/strapi` route.
 
-Change Node version, install dependencies  and build
+Change Node version, install dependencies and build
 
 ```sh
 nvm use v16
@@ -246,8 +246,8 @@ Go to the Nuxt project root
 cd ../nuxt-app
 ```
 
-I assume that you have defined environment variable for Strapi base URL in `.env`  You have to change `STRAPI_BASE_URL` environment variable (or how you define it) from `http://localhost:1337` to `https://your.domain/strapi`
- 
+I assume that you have defined environment variable for Strapi base URL in `.env` You have to change `STRAPI_BASE_URL` environment variable (or how you define it) from `http://localhost:1337` to `https://your.domain/strapi`
+
 Change base Strapi url
 
 ```diff:.env
@@ -255,7 +255,7 @@ Change base Strapi url
 + STRAPI_BASE_URL=https://your.domain/strapi
 ```
 
-Change Node version to the latest back, install dependencies  and build
+Change Node version to the latest back, install dependencies and build
 
 ```sh
 nvm use v19
@@ -274,7 +274,7 @@ module.exports = {
 	}],
 };
 ```
- 
+
 ```sh
 pm2 start ecosystem.config.js
 ```

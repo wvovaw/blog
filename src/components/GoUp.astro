@@ -14,7 +14,10 @@ import { Icon } from "astro-iconify";
     bottom: 2em;
     right: 2em;
     opacity: 0.3;
-    transition: color 300ms ease, visibility 150ms ease-in, opacity 150ms ease-in;
+    transition:
+      color 300ms ease,
+      visibility 150ms ease-in,
+      opacity 150ms ease-in;
     z-index: 30;
     cursor: pointer;
 
@@ -26,7 +29,9 @@ import { Icon } from "astro-iconify";
   .hidden {
     visibility: hidden;
     opacity: 0;
-    transition: visibility 150ms ease-out, opacity 150ms ease-out;
+    transition:
+      visibility 150ms ease-out,
+      opacity 150ms ease-out;
   }
 
   @media screen and (max-width: 1024px) {

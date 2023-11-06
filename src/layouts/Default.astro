@@ -3,6 +3,7 @@ import { SEO } from "astro-seo";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.scss";
+import { ViewTransitions } from "astro:transitions";
 export interface Props {
   title: string;
   description: string;
@@ -12,7 +13,10 @@ export interface Props {
 let {
   title,
   description,
-  image = { src: "/blog/profile_card.png", alt: "Vladimir Ivakhno, fullstack dev" },
+  image = {
+    src: "/blog/profile_card.png",
+    alt: "Vladimir Ivakhno, fullstack dev",
+  },
   frontmatter = null,
 } = Astro.props;
 title = title.charAt(0).toUpperCase() + title.slice(1);
@@ -67,9 +71,10 @@ const url = Astro.request.url;
         site: import.meta.env.PUBLIC_BASE_URL,
       }}
     />
+    <ViewTransitions />
   </head>
   <div class="rainbow"></div>
-  <Header />
+  <Header transition:persist />
   <main>
     <h1 class="page__title">{title}</h1>
     <slot />

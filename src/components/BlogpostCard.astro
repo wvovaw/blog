@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 interface Props {
   title: string;
   description: string;
@@ -37,7 +37,9 @@ const { title, description, date, href, image } = Astro.props;
     width: 320px;
     height: 420px;
     margin-inline: auto;
-    transition: box-shadow 200ms ease-in, transform 200ms ease-in;
+    transition:
+      box-shadow 200ms ease-in,
+      transform 200ms ease-in;
 
     :global(.light-theme) & {
       // background: theme-lightness($theme-light-bg, 1.0);
