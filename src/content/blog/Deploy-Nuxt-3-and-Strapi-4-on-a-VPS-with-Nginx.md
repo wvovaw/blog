@@ -1,7 +1,6 @@
 ---
-layout: "../../layouts/MarkdownPost.astro"
 title: "Deploying Nuxt 3 and Strapi 4 on a VPS"
-pubDate: 2023-04-09
+publishDate: 2023-04-09
 description: "This guide is about how to get Nuxt 3 + Strapi 4 application up and running on a single VPS"
 author: "wvovaw"
 image:

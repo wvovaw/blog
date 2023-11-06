@@ -2,10 +2,11 @@
 import Default from "../layouts/Default.astro";
 import Tags from "../components/Tags.astro";
 import BlogpostsGrid from "../components/BlogpostsGrid.astro";
+import { getCollection } from "astro:content";
 
 const pageTitle = "📑 Blog posts";
 const description = "Here is all the blog posts I've ever made";
-const allPosts = await Astro.glob("./posts/**/*.md");
+const allPosts = await getCollection("blog");
 ---
 
 <Default title={pageTitle} description={description}>

@@ -1,7 +1,6 @@
 ---
-layout: "../../layouts/MarkdownPost.astro"
 title: "Advanced usage of slots in Vue 3"
-pubDate: 2023-03-03
+publishDate: 2023-03-03
 description: "Vue slots must know features like named scoped slots and renderless components"
 author: "wvovaw"
 image:

@@ -1,9 +1,9 @@
 ---
-import type { MarkdownInstance } from "astro";
+import { type CollectionEntry } from "astro:content";
 import BlogpostCard from "../components/BlogpostCard.astro";
 
 interface Props {
-  posts: MarkdownInstance<Record<string, any>>[];
+  posts: CollectionEntry<"blog">[];
 }
 const { posts } = Astro.props;
 ---
@@ -12,13 +12,7 @@ const { posts } = Astro.props;
   {
     posts.map((post) => (
       <li class="grid__item">
-        <BlogpostCard
-          title={post.frontmatter.title}
-          description={post.frontmatter.description}
-          image={post.frontmatter.image}
-          date={post.frontmatter.pubDate}
-          href={post.url as string}
-        />
+        <BlogpostCard post={post} />
       </li>
     ))
   }

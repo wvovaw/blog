@@ -5,15 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write --cache --config .prettierrc.mjs ./src/**/*.{ts,js,astro,vue,css,scss,md,json,ya?ml}"
+    "format": "prettier --write --cache --config .prettierrc.mjs ./src/**/*.{ts,js,tsx,jsx,astro,vue,css,scss,md,json,ya?ml}"
   },
   "dependencies": {
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/vue": "^3.0.3",
     "astro": "^3.4.3",
     "astro-seo": "^0.8.0",
     "lucide-astro": "^0.292.0",

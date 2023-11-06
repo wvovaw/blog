@@ -1,7 +1,6 @@
 ---
-layout: "../../layouts/MarkdownPost.astro"
 title: "Rendering Strapi dynamic zones in Nuxt"
-pubDate: 2023-03-02
+publishDate: 2023-03-02
 description: "How to make your Nuxt frontend to render strapi dynamic zones"
 author: "wvovaw"
 image:
