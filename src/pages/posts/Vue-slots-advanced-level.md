@@ -5,8 +5,10 @@ pubDate: 2023-03-03
 description: "Vue slots must know features like named scoped slots and renderless components"
 author: "wvovaw"
 image:
-  url: "/blog/posts/advanced-vue-slots/banner.png"
+  src: "/blog/posts/advanced-vue-slots/banner.png"
   alt: "vue slots"
+  width: 1050
+  height: 600
 tags: ["vue"]
 ---
 

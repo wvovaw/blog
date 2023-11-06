@@ -5,8 +5,10 @@ pubDate: 2023-03-02
 description: "How to make your Nuxt frontend to render strapi dynamic zones"
 author: "wvovaw"
 image:
-  url: "/blog/posts/strapi-nuxt-dynamic-zones/banner.png"
+  src: "/blog/posts/strapi-nuxt-dynamic-zones/banner.png"
   alt: "Strapi and Nuxt"
+  width: 1050
+  height: 600
 tags: ["strapi", "nuxt"]
 ---
 

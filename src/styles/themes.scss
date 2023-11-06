@@ -1,9 +1,4 @@
 :root {
-  --primary: hsl(136, 74%, 44%);
-  --primary-h: 136;
-  --primary-s: 74%;
-  --primary-l: 44%;
-
   --blue: hsl(220, 80%, 50%);
   --blue-h: 220;
   --blue-s: 80%;
@@ -50,18 +45,18 @@
   --light-fg-s: 0%;
   --light-fg-l: 15%;
 
-  --dark-bg: hsl(0, 0%, 12%);
+  --dark-bg: hsl(0, 0%, 10%);
   --dark-bg-h: 0;
   --dark-bg-s: 0%;
-  --dark-bg-l: 12%;
+  --dark-bg-l: 10%;
 
-  --dark-fg: hsl(0, 0%, 95%);
+  --dark-fg: hsl(0, 5%, 90%);
   --dark-fg-h: 0;
-  --dark-fg-s: 0%;
-  --dark-fg-l: 95%;
+  --dark-fg-s: 5%;
+  --dark-fg-l: 90%;
 }
 
-$primary: var(--primary);
+$primary: var(--green);
 $dark-bg: var(--dark-bg);
 $dark-fg: var(--dark-fg);
 $light-bg: var(--light-bg);

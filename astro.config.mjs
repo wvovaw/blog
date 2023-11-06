@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import vue from "@astrojs/vue";
-import image from "@astrojs/image";
 import remarkCodeTitles from "remark-code-titles";
 import remarkObsidianCallout from "remark-obsidian-callout";
 import astroRemark from "@astrojs/markdown-remark";
@@ -13,7 +12,7 @@ export default defineConfig({
   base: "/blog",
   markdown: {
     shikiConfig: {
-      theme: "vitesse-dark",
+      theme: "dark-plus",
     },
     remarkPlugins: [remarkCodeTitles, remarkObsidianCallout],
     rehypePlugins: [
@@ -22,5 +21,5 @@ export default defineConfig({
       ["rehype-toc", { headings: ["h1", "h2", "h3"], placeholder: "TOC" }],
     ],
   },
-  integrations: [vue(), image(), sitemap({})],
+  integrations: [vue(), sitemap({})],
 });

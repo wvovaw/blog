@@ -35,7 +35,7 @@ body {
 }
 
 ::selection {
-  background: theme-saturation($theme-primary, 0.7);
+  background: theme-alpha($theme-primary, 0.4);
 }
 
 * {

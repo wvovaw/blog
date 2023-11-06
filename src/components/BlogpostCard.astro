@@ -1,12 +1,15 @@
 ---
+import { Image } from 'astro:assets';
 interface Props {
   title: string;
   description: string;
   date: Date;
   href: string;
   image: {
-    url: string;
+    src: string;
     alt: string;
+    width: number;
+    height: number;
   };
 }
 
@@ -15,7 +18,8 @@ const { title, description, date, href, image } = Astro.props;
 
 <div class="card">
   <figure class="card__image">
-    <img src={image.url} alt={image.alt} width={400} loading="lazy" />
+    <!-- <img src={image.url} alt={image.alt} width={400} loading="lazy" /> -->
+    <Image {...image} loading="lazy" />
   </figure>
   <section class="card__content">
     <a href={href}>

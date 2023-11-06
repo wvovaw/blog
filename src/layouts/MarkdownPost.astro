@@ -38,7 +38,7 @@ const { frontmatter } = Astro.props;
     <Tags tags={frontmatter.tags} />
   </div>
   <img
-    src={frontmatter.image.url}
+    src={frontmatter.image.src}
     width="100%"
     alt={frontmatter.image.alt}
     loading="eager"
