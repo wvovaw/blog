@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import remarkCodeTitles from "remark-code-titles";
 import remarkObsidianCallout from "remark-obsidian-callout";
-import astroRemark from "@astrojs/markdown-remark";
 
 import sitemap from "@astrojs/sitemap";
 

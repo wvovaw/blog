@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
-    "@astrojs/rss": "^3.0.0",
+    "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.3",
-    "astro": "^3.4.3",
+    "astro": "^4.0.3",
     "astro-seo": "^0.8.0",
     "lucide-astro": "^0.292.0",
     "remark-code-titles": "^0.1.2",
