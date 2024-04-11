@@ -1,0 +1,42 @@
+@use "@/shared/assets/styles/themes" as *;
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 50px);
+  height: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  color: $dark-fg;
+  font: {
+    size: 0.75rem;
+  }
+
+  .license {
+    display: inline-flex;
+    gap: 0.5em;
+  }
+  .link {
+    transition: filter 200ms ease;
+  }
+  :global(.light-theme) & {
+    color: $light-fg;
+    .link:hover {
+      filter: brightness(0%);
+    }
+  }
+  :global(.dark-theme) & {
+    color: $dark-fg;
+    .link:hover {
+      filter: brightness(50%);
+    }
+  }
+}
+
+nav {
+  display: flex;
+  gap: 1em;
+  justify-content: end;
+}

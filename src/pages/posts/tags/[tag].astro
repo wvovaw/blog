@@ -1,7 +1,7 @@
 ---
-import Default from "../../../layouts/Default.astro";
-import BlogpostsGrid from "../../../components/BlogpostsGrid.astro";
 import { getCollection } from "astro:content";
+import { Default } from "@/layouts/Default";
+import { BlogpostsGrid } from "@/components/BlogpostsGrid";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
@@ -30,8 +30,8 @@ const { posts } = Astro.props;
 </Default>
 
 <style lang="scss">
-  @import "../../../styles/themes.scss";
+  @use "@/shared/assets/styles/themes" as *;
   .tag {
-    color: $theme-primary;
+    color: $primary;
   }
 </style>

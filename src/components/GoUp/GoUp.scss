@@ -1,0 +1,32 @@
+@use "@/shared/assets/styles/themes" as *;
+
+.go-up {
+  position: fixed;
+  bottom: 2em;
+  right: 3em;
+  opacity: 0.3;
+  transition:
+    color 300ms ease,
+    visibility 150ms ease-in,
+    opacity 150ms ease-in;
+  z-index: 30;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    visibility 150ms ease-out,
+    opacity 150ms ease-out;
+}
+
+@media screen and (max-width: 1024px) {
+  .go-up {
+    display: none;
+  }
+}

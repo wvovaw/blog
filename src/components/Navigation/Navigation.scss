@@ -1,0 +1,113 @@
+@use "@/shared/assets/styles/themes" as *;
+
+.nav {
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 500ms ease-in-out,
+    background-color 500ms ease,
+    color 500ms ease-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+
+  :global(.light-theme) & {
+    background: $light-bg;
+  }
+  :global(.dark-theme) & {
+    background: $dark-bg;
+  }
+
+  &__theme-toggle {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__link {
+    display: block;
+    padding: 18px 0;
+    text-decoration: none;
+    transition: background-color 250ms ease-in-out;
+
+    font: {
+      size: 1.2rem;
+      weight: 800;
+    }
+    text: {
+      align: center;
+      transform: uppercase;
+    }
+
+    &--active {
+      text: {
+        decoration-line: underline;
+        decoration-style: wavy;
+        decoration-thickness: 0.18em;
+        decoration-color: $primary;
+      }
+    }
+
+    &--iconed {
+      display: flex;
+      justify-content: center;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $primary;
+    }
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .expanded {
+    display: unset;
+    visibility: visible;
+    opacity: 1;
+    display: grid;
+    place-content: center;
+
+    .nav {
+      &__link {
+        margin: 1em auto;
+        padding: 0.8em 0.5em;
+        font: {
+          size: 2.5em;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 636px) {
+  .nav {
+    visibility: visible;
+    opacity: 1;
+    top: 5rem;
+    left: 48px;
+    margin: 2rem 0;
+    display: flex;
+    position: static;
+    width: auto;
+    background: none;
+
+    &__link {
+      display: inline-block;
+      padding: 10px 25px;
+      align-items: center;
+
+      &--iconed {
+        display: flex;
+        place-items: center;
+        padding: 0 1em;
+      }
+    }
+    &__theme-toggle {
+      visibility: visible;
+      margin: auto 0;
+      margin-left: auto;
+    }
+  }
+}

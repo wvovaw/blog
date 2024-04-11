@@ -1,0 +1,28 @@
+---
+import { type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { title, description, image, publishDate } = Astro.props.post.data;
+const slug = Astro.props.post.slug;
+---
+
+<div class="card">
+  <figure class="card__image">
+    <Image {...image} loading="lazy" />
+  </figure>
+  <section class="card__content">
+    <a href={`/blog/posts/${slug}`}>
+      <h5 class="card__title">{title}</h5>
+    </a>
+    <div class="card__date">{publishDate.toString().slice(0, 15)}</div>
+    <span class="card__description">{description}</span>
+  </section>
+</div>
+
+<style lang="scss">
+  @use "BlogpostCard.scss";
+</style>

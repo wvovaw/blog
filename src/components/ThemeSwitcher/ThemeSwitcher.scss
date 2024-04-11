@@ -1,0 +1,18 @@
+#themeToggle {
+  position: relative;
+  border: 0;
+  background: none;
+}
+.sun {
+  fill: hsl(0, 0%, 10%);
+}
+.moon {
+  fill: transparent;
+}
+
+:global(.dark-theme) .sun {
+  fill: transparent;
+}
+:global(.dark-theme) .moon {
+  fill: hsl(0, 0%, 95%);
+}

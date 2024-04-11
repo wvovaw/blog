@@ -1,5 +1,5 @@
 ---
-import Default from "../layouts/Default.astro";
+import { Default } from "@/layouts/Default";
 
 const pageTitle = "🥑 About Me";
 const description = "Passionate web developer";
@@ -18,11 +18,16 @@ const description = "Passionate web developer";
     <strong class="astro">astro</strong>,
     <strong class="strapi">strapi</strong>,
     <strong>fastify</strong>
-     and many other tools
+    and many other tools
   </p>
   <p>Begining in freelance 💹</p>
   <p>Wasting the best time of my life staring at monitors 😵‍💫</p>
-  <img alt="nyan cat gif" src="/blog/nyan.gif" width="400" height="400" />
+  <img
+    alt="nyan cat gif"
+    src="/blog/images/nyan.gif"
+    width="400"
+    height="400"
+  />
 </Default>
 
 <style lang="scss">

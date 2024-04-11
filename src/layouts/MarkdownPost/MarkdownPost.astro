@@ -1,0 +1,57 @@
+---
+import { type CollectionEntry } from "astro:content";
+import { UserSquare, Calendar } from "lucide-astro";
+import { Image } from "astro:assets";
+import { Default } from "@/layouts/Default";
+import { Tags } from "@/components/Tags";
+import { Separator } from "@/components/Separator";
+import { MarkdownArticle } from "@/components/MarkdownArticle";
+
+interface Props {
+  frontmatter: CollectionEntry<"blog">["data"];
+}
+const {
+  author,
+  title,
+  description,
+  image,
+  publishDate,
+  tags,
+  isDraft,
+  relatedPosts,
+} = Astro.props.frontmatter;
+---
+
+<Default title={"📖 " + title} description={description} image={image}>
+  <div class="metadata">
+    <div class="metadata__author">
+      <UserSquare class="metadata__icon" size={24} />
+      {author}
+    </div>
+    <div class="metadata__date">
+      <Calendar class="metadata__icon" size={24} />
+      <time class="metadata__time" datetime={publishDate.toISOString()}>
+        {publishDate.toDateString()}
+      </time>
+    </div>
+  </div>
+  <div class="metadata__tags">
+    <Tags tags={tags} />
+  </div>
+  <Image
+    src={image.src}
+    width={image.width}
+    height={image.height}
+    alt={image.alt}
+    loading="eager"
+  />
+  <Separator />
+  <MarkdownArticle>
+    <slot />
+  </MarkdownArticle>
+  <Separator />
+</Default>
+
+<style lang="scss">
+  @import "./MarkdownPost.scss";
+</style>

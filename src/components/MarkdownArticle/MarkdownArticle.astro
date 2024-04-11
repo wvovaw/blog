@@ -1,0 +1,17 @@
+---
+import { GoUp } from "@/components/GoUp";
+---
+
+<article class="markdown-body">
+  <GoUp />
+  <slot />
+</article>
+<script lang="ts">
+  // This code removes theme bg color so i can apply mine
+  const pres = document.querySelectorAll("pre");
+  pres.forEach((pre) => (pre.style = ""));
+</script>
+
+<style is:global lang="scss">
+  @use "./MarkdownArticle.scss";
+</style>

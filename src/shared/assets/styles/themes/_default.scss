@@ -1,0 +1,69 @@
+:root {
+  --blue: hsl(220, 80%, 50%);
+  --blue-h: 220;
+  --blue-s: 80%;
+  --blue-l: 50%;
+
+  --red: hsl(0, 80%, 55%);
+  --red-h: 0;
+  --red-s: 80%;
+  --red-l: 55%;
+
+  --green: hsl(133, 90%, 50%);
+  --green-h: 133;
+  --green-s: 90%;
+  --green-l: 50%;
+
+  --yellow: hsl(69, 90%, 50%);
+  --yellow-h: 69;
+  --yellow-s: 90%;
+  --yellow-l: 50%;
+
+  --orange: hsl(27, 90%, 50%);
+  --orange-h: 27;
+  --orange-s: 90%;
+  --orange-l: 50%;
+
+  --cyan: hsl(160, 100%, 80%);
+  --cyan-h: 160;
+  --cyan-s: 100%;
+  --cyan-l: 80%;
+
+  --purple: hsl(272, 90%, 50%);
+  --purple-h: 272;
+  --purple-s: 90%;
+  --purple-l: 50%;
+
+  --light-bg: hsl(25, 25%, 95%);
+  --light-bg-h: 25;
+  --light-bg-s: 25%;
+  --light-bg-l: 95%;
+
+  --light-fg: hsl(0, 0%, 15%);
+  --light-fg-h: 0;
+  --light-fg-s: 0%;
+  --light-fg-l: 15%;
+
+  --dark-bg: hsl(0, 0%, 10%);
+  --dark-bg-h: 0;
+  --dark-bg-s: 0%;
+  --dark-bg-l: 10%;
+
+  --dark-fg: hsl(0, 5%, 90%);
+  --dark-fg-h: 0;
+  --dark-fg-s: 5%;
+  --dark-fg-l: 90%;
+}
+
+$primary: var(--green);
+$dark-bg: var(--dark-bg);
+$dark-fg: var(--dark-fg);
+$light-bg: var(--light-bg);
+$light-fg: var(--light-fg);
+$blue: var(--blue);
+$red: var(--red);
+$green: var(--green);
+$yellow: var(--yellow);
+$orange: var(--orange);
+$cyan: var(--cyan);
+$purple: var(--purple);

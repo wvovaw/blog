@@ -1,0 +1,32 @@
+---
+import { ChevronsUp } from "lucide-astro";
+---
+
+<ChevronsUp size={28} class="go-up hidden" />
+
+<style lang="scss">
+  @use "GoUp.scss";
+</style>
+
+<script lang="js">
+  const showGoUpButton = () => {
+    if (window.scrollY > 500) {
+      document.querySelector(".go-up").classList.remove("hidden");
+      window.removeEventListener("scroll", showGoUpButton);
+      window.addEventListener("scroll", hideGoUpButton);
+    }
+  };
+  const hideGoUpButton = () => {
+    if (window.scrollY < 500) {
+      document.querySelector(".go-up").classList.add("hidden");
+      window.addEventListener("scroll", showGoUpButton);
+      window.removeEventListener("scroll", hideGoUpButton);
+    }
+  };
+  document.addEventListener("astro:page-load", () => {
+    document.querySelector(".go-up").addEventListener("click", () => {
+      window.scrollTo(0, 0);
+    });
+    window.addEventListener("scroll", showGoUpButton);
+  });
+</script>

@@ -1,0 +1,35 @@
+svg {
+  transition: all 200ms ease;
+}
+.button {
+  display: flex;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  margin: 10px;
+  cursor: pointer;
+}
+.cross,
+.hamburger {
+  display: flex;
+  justify-content: end;
+  margin: 10px;
+  cursor: pointer;
+}
+.cross {
+  position: absolute;
+}
+.hidden {
+  & svg {
+    transform: rotateX(90deg);
+  }
+}
+
+@media screen and (min-width: 636px) {
+  .hamburger {
+    display: none;
+  }
+  .cross {
+    display: none;
+  }
+}

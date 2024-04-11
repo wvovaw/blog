@@ -1,0 +1,23 @@
+@use "@/shared/assets/styles/themes" as *;
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  row-gap: 0.5em;
+
+  &__item {
+    margin: 0.25em;
+    border: solid 1px $primary;
+    color: $primary;
+    padding: 0.2em 0.6em;
+    font: {
+      size: 1em;
+      weight: 500;
+    }
+
+    &::before {
+      content: "#";
+    }
+  }
+}

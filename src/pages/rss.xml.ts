@@ -1,5 +1,5 @@
 import rss from "@astrojs/rss";
-import { getCollection, type CollectionEntry } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 
 export async function get() {
   const posts = await getCollection("blog");

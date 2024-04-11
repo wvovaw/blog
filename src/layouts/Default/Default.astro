@@ -1,0 +1,93 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { type CollectionEntry } from "astro:content";
+import { SEO } from "astro-seo";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import "@/shared/assets/styles/main.scss";
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: { src: string; alt?: string };
+  frontmatter?: CollectionEntry<"blog">["data"];
+}
+let {
+  title,
+  description,
+  image = {
+    src: "/blog/profile_card.png",
+    alt: "Vladimir Ivakhno, fullstack dev",
+  },
+  frontmatter = null,
+} = Astro.props;
+title = title.charAt(0).toUpperCase() + title.slice(1);
+const url = Astro.request.url;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      title={title}
+      description={description}
+      canonical={url}
+      openGraph={{
+        basic: {
+          url,
+          title: `${title}.`,
+          type: frontmatter ? "post" : "website",
+          image: image.src,
+        },
+        optional: {
+          description,
+          locale: "en_US",
+          siteName: "Wvovaw blog",
+        },
+        image: {
+          type: "image/png",
+          url: image.src,
+          alt: image.alt,
+          height: 600,
+          width: 1050,
+          // secureUrl: image.src // ???
+        },
+        article: frontmatter
+          ? {
+              authors: [frontmatter.author],
+              publishedTime: frontmatter.publishDate.toString(),
+              tags: frontmatter.tags,
+            }
+          : {},
+      }}
+      twitter={{
+        creator: "@wvovaw",
+        title,
+        description,
+        image: image.src,
+        imageAlt: image.alt,
+        card: "summary_large_image",
+        site: import.meta.env.PUBLIC_BASE_URL,
+      }}
+    />
+    <ViewTransitions />
+  </head>
+  <div class="rainbow"></div>
+  <Header transition:persist="header" />
+  <main>
+    <h1 class="page__title">{title}</h1>
+    <slot />
+  </main>
+  <Footer />
+
+  <script>
+    import "@/shared/scripts/menu";
+  </script>
+
+  <style lang="scss">
+    @import "./Default.scss";
+  </style>
+</html>

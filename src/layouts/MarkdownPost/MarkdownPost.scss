@@ -1,0 +1,23 @@
+.metadata {
+  display: inline-flex;
+  gap: 1em;
+  text-align: center;
+  margin-bottom: 1em;
+  color: rgb(112, 112, 112);
+  & div {
+    display: flex;
+    gap: 5px;
+  }
+
+  & * {
+    font: {
+      size: 1.1em;
+    }
+  }
+  &__tags {
+    margin: 1em 0;
+  }
+}
+img {
+  margin-inline: auto;
+}

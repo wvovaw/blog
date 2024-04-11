@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  tags?: string[];
+}
+let { tags } = Astro.props;
+
+const allPosts = await getCollection("blog");
+const allTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+
+if (!tags) tags = allTags;
+---
+
+<div class="tags">
+  {
+    tags.map((tag: any) => (
+      <p>
+        <a class="tags__item" href={`/blog/posts/tags/${tag}`}>
+          {tag}
+        </a>
+      </p>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @use "./Tags.scss";
+</style>

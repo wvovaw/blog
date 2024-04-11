@@ -4,7 +4,7 @@ publishDate: 2023-03-02
 description: "How to make your Nuxt frontend to render strapi dynamic zones"
 author: "wvovaw"
 image:
-  src: "/blog/posts/strapi-nuxt-dynamic-zones/banner.png"
+  src: "/blog/images/posts/strapi-nuxt-dynamic-zones/banner.png"
   alt: "Strapi and Nuxt"
   width: 1050
   height: 600
@@ -49,7 +49,7 @@ Save it and publish and we're ready to go further.
 
 # In Nuxt
 
-> [!warning] Warning
+> Warning
 > Class attributes with tailwindcss styles have been omitted as they are not relevant to the article.
 
 To display our components on a page we must have created `Hero.vue` and `RichText.vue` components and the `BlocksDynamicZone.vue` component which will dynamically resolve which of them to render depending on strapi data.
@@ -58,14 +58,14 @@ Directory structure:
 
 ```
 ├── components
-│   └── strapi_components
-│       └── blocks
-│          ├── Hero.vue
-│          ├── RichText.vue
-│          └── BlocksDynamicZone.vue
+│   └── strapi_components
+│       └── blocks
+│          ├── Hero.vue
+│          ├── RichText.vue
+│          └── BlocksDynamicZone.vue
 ```
 
-> [!tip] Recommendatoin
+> Recommendatoin
 > I recommend to create **strapi_components** directory in the `@/components` directory to place all the strapi dependent components there to keep your app code consistent and easier to maintain. In this example we add **blocks** directory in the **strapi_components** and place our `Hero.vue` and `RichText.vue` in it.
 
 ## Create BlocksDynamicZone.vue component
@@ -73,27 +73,27 @@ Directory structure:
 ```vue:@/components/strapi_components/blocks/BlocksDynamicZone.vue
 <script lang="ts" setup>
 defineProps({
-	blocks: {
-		type: Object,
-		required: true,
-	},
+  blocks: {
+    type: Object,
+    required: true,
+  },
 });
 const components = new Map([
-	["blocks.hero", resolveComponent("Hero")],
-	["blocks.rich-text", resolveComponent("RichText")],
+  ["blocks.hero", resolveComponent("Hero")],
+  ["blocks.rich-text", resolveComponent("RichText")],
 ]);
 </script>
 
 <template>
-	<template v-for="block of blocks" :key="useRandomString(5)">
-		<component :is="components.get(block.__component)" :block="block"/>
-	</template>
+  <template v-for="block of blocks" :key="block.id">
+    <component :is="components.get(block.__component)" :block="block" />
+  </template>
 </template>
 ```
 
 The `BlocksDynamicZone.vue` responses for deciding which component to render depending on the data from the strapi backend. All we need to implement this behavior is to pass the **blocks** array of the **page** object as a component property, then iterate over all the elements in the **blocks** array and use its `__component` property as the key to get corresponding component. This approach uses [Vue dynamic components](https://nuxt.com/docs/guide/directory-structure/components#dynamic-components) mechanism with `resolveComponent()` helper function provided by vue. Map fits very well here because we have a key-value dependency.
 
-> [!info] Info
+> Info
 > Remember that strapi translate _PascalCase_ and _camelCase_ names to _kebab-case_. So, _RichText_ becomes _rich-text_ etc.
 
 ## Create blocks components
@@ -107,6 +107,7 @@ const props = defineProps({
   },
 });
 </script>
+
 <template>
   <section>
     <div
@@ -120,10 +121,10 @@ const props = defineProps({
       <p
         class="some-styles"
         :class="{
-          'text-4xl: block.size === 'large',
-          'text-3xl: block.size === 'medium',
-          'text-2xl: block.size === 'normal',
-          'text-xl: block.size === 'small',
+          'text-4xl': block.size === 'large',
+          'text-3xl': block.size === 'medium',
+          'text-2xl': block.size === 'normal',
+          'text-xl': block.size === 'small',
         }"
       >
         {{ block.title }}
@@ -155,10 +156,10 @@ const props = defineProps({
 </script>
 
 <template>
-	<div
-		class="prose"
-		v-html="$mdRenderer.render(block.content)"
-	/>
+  <div
+    class="prose"
+    v-html="$mdRenderer.render(block.content)"
+  />
 </template>
 ```
 
@@ -187,12 +188,12 @@ const page = await(await usePages({ slug: { $eq: route } })).pages;
 </script>
 
 <template>
-	<BlocksDynamicZone :blocks="page.data[0].attributes.Blocks" />
+  <BlocksDynamicZone :blocks="page.data[0].attributes.Blocks" />
 </template>
 ```
 
 ```ts:@/composables/pages.ts
-export const usePages = async (filters: Record<string, any>) => {
+export async function usePages(filters: Record<string, any>) {
   const { find } = useStrapi();
   const data = await useAsyncData("pages", () =>
     find("pages", {
@@ -211,12 +212,10 @@ export const usePages = async (filters: Record<string, any>) => {
       },
       fields: ["title", "slug"],
       filters,
-    })
-  );
+    }));
 
   return { pages: toRaw(data.data.value) };
-};
-
+}
 ```
 
 Since strapi does not include dynamic zones in response by default you must populate it. Don't forget to add each new component to the request schema as above.
