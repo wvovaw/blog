@@ -1,6 +1,7 @@
 import { URL, fileURLToPath } from "node:url";
 import { defineConfig } from "astro/config";
 import remarkCodeTitles from "remark-code-titles";
+import remarkObsidianCallout from "remark-obsidian-callout";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -12,7 +13,7 @@ export default defineConfig({
     shikiConfig: {
       theme: "dark-plus",
     },
-    remarkPlugins: [remarkCodeTitles],
+    remarkPlugins: [remarkCodeTitles, remarkObsidianCallout],
     rehypePlugins: [
       "rehype-slug",
       ["rehype-autolink-headings", { behavior: "prepend" }],

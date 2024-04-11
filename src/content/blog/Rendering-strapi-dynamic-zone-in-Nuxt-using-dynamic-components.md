@@ -28,29 +28,29 @@ Create new components (_I recommend to place components under the category which
 
 Let's create a **Hero** component. It will display the title and smaller subtitle and It will also have text size and alignment dependent on its selections
 
-![create hero component in strapi](/blog/posts/strapi-nuxt-dynamic-zones/create-hero-component-in-strapi.png)
+![create hero component in strapi](/blog/images/posts/strapi-nuxt-dynamic-zones/create-hero-component-in-strapi.png)
 
 And another component - **RichText** which will only have one field with the Rich text type
 
-![create rich text component in strapi](/blog/posts/strapi-nuxt-dynamic-zones/create-rich-text-component-in-strapi.png)
+![create rich text component in strapi](/blog/images/posts/strapi-nuxt-dynamic-zones/create-rich-text-component-in-strapi.png)
 
 ## Add Blocks dynamic zone
 
 After we have created a couple of blocks we must add dynamic zone on the page and for consistency name it Blocks
 
-![add dynamic zone on page](/blog/posts/strapi-nuxt-dynamic-zones/add-dynamic-zone-on-page.png)
-![add dynamic zone on page result](/blog/posts/strapi-nuxt-dynamic-zones/add-dynamic-zone-on-page-result.png)
+![add dynamic zone on page](/blog/images/posts/strapi-nuxt-dynamic-zones/add-dynamic-zone-on-page.png)
+![add dynamic zone on page result](/blog/images/posts/strapi-nuxt-dynamic-zones/add-dynamic-zone-on-page-result.png)
 
 After that save the changes, create an example page and add this blocks on it
 
-![test page view](/blog/posts/strapi-nuxt-dynamic-zones/test-page-view.png)
+![test page view](/blog/images/posts/strapi-nuxt-dynamic-zones/test-page-view.png)
 
 Save it and publish and we're ready to go further.
 
 # In Nuxt
 
-> Warning
-> Class attributes with tailwindcss styles have been omitted as they are not relevant to the article.
+> [!warning]
+> Class attributes with styles have been omitted as they are not relevant to the article.
 
 To display our components on a page we must have created `Hero.vue` and `RichText.vue` components and the `BlocksDynamicZone.vue` component which will dynamically resolve which of them to render depending on strapi data.
 
@@ -65,7 +65,7 @@ Directory structure:
 │          └── BlocksDynamicZone.vue
 ```
 
-> Recommendatoin
+> [!tip] Recommendatoin
 > I recommend to create **strapi_components** directory in the `@/components` directory to place all the strapi dependent components there to keep your app code consistent and easier to maintain. In this example we add **blocks** directory in the **strapi_components** and place our `Hero.vue` and `RichText.vue` in it.
 
 ## Create BlocksDynamicZone.vue component
@@ -93,8 +93,9 @@ const components = new Map([
 
 The `BlocksDynamicZone.vue` responses for deciding which component to render depending on the data from the strapi backend. All we need to implement this behavior is to pass the **blocks** array of the **page** object as a component property, then iterate over all the elements in the **blocks** array and use its `__component` property as the key to get corresponding component. This approach uses [Vue dynamic components](https://nuxt.com/docs/guide/directory-structure/components#dynamic-components) mechanism with `resolveComponent()` helper function provided by vue. Map fits very well here because we have a key-value dependency.
 
-> Info
-> Remember that strapi translate _PascalCase_ and _camelCase_ names to _kebab-case_. So, _RichText_ becomes _rich-text_ etc.
+> [!info] Case transforms
+>
+> Remember that strapi translates _PascalCase_ and _camelCase_ names to _kebab-case_. So, _RichText_ becomes _rich-text_ etc.
 
 ## Create blocks components
 
@@ -222,8 +223,8 @@ Since strapi does not include dynamic zones in response by default you must popu
 
 # Result
 
-![result](/blog/posts/strapi-nuxt-dynamic-zones/result.png)
+![result](/blog/images/posts/strapi-nuxt-dynamic-zones/result.png)
 
 # Conclusion
 
-This approach makes possible to edit a page blocks placement and rearrange blocks right in the strapi content manager and not to disturb developers for that simple task. It makes code much more simple and much more maintainable because it implies a consistent components file structure and unifies components interface, so you have to do less steps to add a new component to a project. It also possible to create different dynamic zones for different needs.
+This approach makes possible to edit a page blocks placement and rearrange blocks right in the strapi content manager. You can query the blocks structure on every page visit, cache it with some ttl, or fire a build process to build a page statically. It also possible to create different dynamic zones for different needs, like form builders, dynamic menus etc.

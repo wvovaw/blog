@@ -63,7 +63,7 @@ ufw allow https
 ufw enable
 ```
 
-> Info
+> [!info] Info
 > I'ts ok if your ssh connection has been disrupted. Just reconnect again
 
 ## Setup Nginx with Certbot
@@ -102,7 +102,7 @@ Enter your email, Accept TOS and enter your domain name `your.domain,www.your.do
 
 After you successfully receive certificate Certbot automatically generates basic Nginx configuration with your certificates deployed. Go and check `https://your.domain` You will **Welcome Nginx** page if everything is ok.
 
-> Tip
+> [!tip] Tip
 > Certbot will renew certificates automatically before they expire
 
 ## Setup Node
@@ -371,7 +371,7 @@ server {
 }
 ```
 
-> Warning
+> [!warning] Warning
 > In this file you'll need to replace all occurrences of `your.domain` with your domain name. in vim you can just run `%s/your.domain/yourreal.domain/g`
 
 Disable `default` config and enable `your.domain` config with the next commands
@@ -403,8 +403,16 @@ Open your website and make sure everything works
 
 If you've followed the guide carefully but face an issue here is some of probable purposes:
 
-> - Wrong upstreams
->   upstreams in `/etc/nginx/sites-available/your.domain` ports may differ from that your Strapi or/and Nuxt run on. If your Nuxt port is not `3000` or/and Strapi port is not `1337` then edit upstreams in the Nginx config accordingly.
+<details>
+<summary>Wrong upstreams</summary>
 
-> - Wrong SSL certificate key path
->   Your SSL certificate may be generated on a different path. Check if `/etc/letsencrypt/live/your.domain/` has `fullchain.pem` and `privkey.pem` files in it. If there is no files then find where Certbot placed it or run Certbot again.
+upstreams in `/etc/nginx/sites-available/your.domain` ports may differ from that your Strapi or/and Nuxt run on. If your Nuxt port is not `3000` or/and Strapi port is not `1337` then edit upstreams in the Nginx config accordingly.
+
+</details>
+
+<details>
+<summary>Wrong SSL certificate key path</summary>
+
+Your SSL certificate may be generated on a different path. Check if `/etc/letsencrypt/live/your.domain/` has `fullchain.pem` and `privkey.pem` files in it. If there is no files then find where Certbot placed it or run Certbot again.
+
+</details>
