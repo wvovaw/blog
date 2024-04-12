@@ -500,15 +500,10 @@ $line-space: 22px;
   }
   details {
     border-left-color: $color-primary;
-    summary {
-      background: repeating-linear-gradient(
-        -55deg,
-        lightness($color-fg, 0.4) 1px,
-        transparent 2px,
-        transparent 14px,
-        lightness($color-fg, 0.4) 15px,
-        lightness($color-fg, 0.4) 2px
-      );
+    padding-left: 2rem;
+
+    & summary {
+      translate: -1.4rem 0;
     }
   }
   ol li {
@@ -614,7 +609,7 @@ html.light-theme .markdown-body {
   $color-fg: $light-fg;
   $color-bg: $light-bg;
   $color-code-bg: alpha($primary, 0.1);
-  $color-code-file-bg: alpha($primary, 0.3);
+  $color-code-file-bg: lightness($color-bg, 0.95);
   $color-code-file-fg: lightness($color-fg, 0.9);
   $color-inline-code-bg: alpha($primary, 0.2);
   $color-inline-code-fg: lightness($color-fg, 0.95);

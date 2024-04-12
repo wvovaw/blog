@@ -22,8 +22,8 @@
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
     "rehype-toc": "^3.0.2",
-    "remark-callout": "^1.1.1",
     "remark-code-titles": "^0.1.2",
+    "remark-obsidian-callout": "^1.1.3",
     "vue": "^3.4.21"
   },
   "devDependencies": {
@@ -34,7 +34,6 @@
     "eslint-plugin-format": "^0.1.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
-    "remark-obsidian-callout": "^1.1.3",
     "sass": "^1.74.1",
     "typescript": "^5.4.4"
   }

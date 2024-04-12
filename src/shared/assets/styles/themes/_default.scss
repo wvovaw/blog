@@ -1,3 +1,6 @@
+:root.dark-theme { color-scheme: dark; };
+:root.light-theme { color-scheme: light };
+
 :root {
   --blue: hsl(220, 80%, 50%);
   --blue-h: 220;
@@ -24,10 +27,10 @@
   --orange-s: 90%;
   --orange-l: 50%;
 
-  --cyan: hsl(160, 100%, 80%);
+  --cyan: hsl(160, 55%, 37%);
   --cyan-h: 160;
-  --cyan-s: 100%;
-  --cyan-l: 80%;
+  --cyan-s: 55%;
+  --cyan-l: 37%;
 
   --purple: hsl(272, 90%, 50%);
   --purple-h: 272;
@@ -44,10 +47,10 @@
   --light-fg-s: 0%;
   --light-fg-l: 15%;
 
-  --dark-bg: hsl(0, 0%, 10%);
-  --dark-bg-h: 0;
-  --dark-bg-s: 0%;
-  --dark-bg-l: 10%;
+  --dark-bg: hsl(258, 29%, 7%);
+  --dark-bg-h: 258;
+  --dark-bg-s: 29%;
+  --dark-bg-l: 7%;
 
   --dark-fg: hsl(0, 5%, 90%);
   --dark-fg-h: 0;
@@ -55,7 +58,7 @@
   --dark-fg-l: 90%;
 }
 
-$primary: var(--green);
+$primary: var(--cyan);
 $dark-bg: var(--dark-bg);
 $dark-fg: var(--dark-fg);
 $light-bg: var(--light-bg);

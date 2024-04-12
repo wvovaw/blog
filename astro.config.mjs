@@ -11,7 +11,10 @@ export default defineConfig({
   base: "/blog",
   markdown: {
     shikiConfig: {
-      theme: "dark-plus",
+      themes: {
+        light: "min-light",
+        dark: "min-dark",
+      }
     },
     remarkPlugins: [remarkCodeTitles, remarkObsidianCallout],
     rehypePlugins: [

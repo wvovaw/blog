@@ -1,0 +1,10 @@
+:root.dark-theme {
+  .astro-code
+  span[style] {
+    color: var(--shiki-dark) !important;
+  }
+
+  pre.astro-code {
+    background: var(--shiki-dark-bg) !important;
+  }
+}
