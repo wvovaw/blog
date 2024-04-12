@@ -1,5 +1,7 @@
 ---
 import { Default } from "@/layouts/Default";
+import { Image } from "astro:assets";
+import nyanCat from "@/shared/assets/images/nyan.gif";
 
 const pageTitle = "🥑 About Me";
 const description = "Passionate web developer";
@@ -18,16 +20,11 @@ const description = "Passionate web developer";
     <strong class="astro">astro</strong>,
     <strong class="strapi">strapi</strong>,
     <strong>fastify</strong>
-    and many other tools
+    and many other tools.
   </p>
   <p>Begining in freelance 💹</p>
   <p>Wasting the best time of my life staring at monitors 😵‍💫</p>
-  <img
-    alt="nyan cat gif"
-    src="/blog/images/nyan.gif"
-    width="400"
-    height="400"
-  />
+  <Image src={nyanCat} alt="nyan cat gif" />
 </Default>
 
 <style lang="scss">
@@ -62,9 +59,6 @@ const description = "Passionate web developer";
       &.strapi {
         color: #271fe0;
       }
-      &.storyblok {
-        color: #00b3b0;
-      }
     }
   }
   .iam {
@@ -73,8 +67,6 @@ const description = "Passionate web developer";
       size: 4em;
       weight: 900;
     }
-    background: rgb(29, 195, 73);
-    background: rgb(29, 195, 73);
     background: radial-gradient(
       circle,
       rgba(29, 195, 73, 1) 0%,

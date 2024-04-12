@@ -12,7 +12,7 @@ const menu = [
 
 <nav class="nav">
   <a class="nav__link--iconed" href="/blog/" aria-label="Go to homepage">
-    <Triangle size={32} />
+    <Triangle data-triangle size={32} transition:persist />
   </a>
   {
     menu.map((link) => (
@@ -36,3 +36,15 @@ const menu = [
 <style lang="scss">
   @use "./Navigation.scss";
 </style>
+
+<script is:inline>
+const triangle = document.querySelector("[data-triangle]");
+
+triangle.addEventListener("click", () => {
+  const deg = parseInt(triangle.getAttribute("data-deg"));
+
+  const newDeg = (!Number.isNaN(deg) ? deg : 0 ) + 60;
+  triangle.style.transform = `rotate(${newDeg}deg)`;
+  triangle.setAttribute("data-deg", newDeg);
+})
+</script>

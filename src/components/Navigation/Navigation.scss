@@ -110,4 +110,9 @@
       margin-left: auto;
     }
   }
+
+  svg[data-triangle] {
+    transform-origin: center;
+    transition: transform ease-in-out 300ms;
+  }
 }
