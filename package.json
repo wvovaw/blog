@@ -9,14 +9,13 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write --cache --config .prettierrc.mjs ./src/**/*.{ts,js,tsx,jsx,astro,vue,css,scss,md,json,ya?ml}"
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.1.2",
-    "astro": "^4.5.18",
+    "@astrojs/check": "0.7.0",
+    "@astrojs/rss": "4.0.7",
+    "@astrojs/sitemap": "3.1.6",
+    "astro": "4.11.5",
     "astro-seo": "^0.8.3",
     "lucide-astro": "^0.366.0",
     "rehype-autolink-headings": "^6.1.1",

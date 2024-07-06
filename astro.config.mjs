@@ -1,5 +1,5 @@
 import { URL, fileURLToPath } from "node:url";
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 import remarkCodeTitles from "remark-code-titles";
 import remarkObsidianCallout from "remark-obsidian-callout";
 
@@ -22,6 +22,9 @@ export default defineConfig({
       ["rehype-autolink-headings", { behavior: "prepend" }],
       ["rehype-toc", { headings: ["h1", "h2", "h3"], placeholder: "TOC" }],
     ],
+  },
+  image: {
+    service: passthroughImageService(),
   },
   vite: {
     resolve: {
