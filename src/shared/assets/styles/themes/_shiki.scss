@@ -1,6 +1,5 @@
 :root.dark-theme {
-  .astro-code
-  span[style] {
+  .astro-code span[style] {
     color: var(--shiki-dark) !important;
   }
 

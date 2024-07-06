@@ -1,5 +1,9 @@
-:root.dark-theme { color-scheme: dark; };
-:root.light-theme { color-scheme: light };
+:root.dark-theme {
+  color-scheme: dark;
+}
+:root.light-theme {
+  color-scheme: light;
+}
 
 :root {
   --blue: hsl(220, 80%, 50%);

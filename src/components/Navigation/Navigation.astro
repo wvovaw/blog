@@ -38,13 +38,13 @@ const menu = [
 </style>
 
 <script is:inline>
-const triangle = document.querySelector("[data-triangle]");
+  const triangle = document.querySelector("[data-triangle]");
 
-triangle.addEventListener("click", () => {
-  const deg = parseInt(triangle.getAttribute("data-deg"));
+  triangle.addEventListener("click", () => {
+    const deg = parseInt(triangle.getAttribute("data-deg"));
 
-  const newDeg = (!Number.isNaN(deg) ? deg : 0 ) + 60;
-  triangle.style.transform = `rotate(${newDeg}deg)`;
-  triangle.setAttribute("data-deg", newDeg);
-})
+    const newDeg = (!Number.isNaN(deg) ? deg : 0) + 60;
+    triangle.style.transform = `rotate(${newDeg}deg)`;
+    triangle.setAttribute("data-deg", newDeg);
+  });
 </script>

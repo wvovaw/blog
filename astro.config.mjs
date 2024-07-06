@@ -14,7 +14,7 @@ export default defineConfig({
       themes: {
         light: "min-light",
         dark: "min-dark",
-      }
+      },
     },
     remarkPlugins: [remarkCodeTitles, remarkObsidianCallout],
     rehypePlugins: [
