@@ -6,11 +6,11 @@ import { BlogpostsGrid } from "@/components/BlogpostsGrid";
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
   const uniqueTags = [
-    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+    ...new Set(allPosts.map(post => post.data.tags).flat()),
   ];
 
   return uniqueTags.map((tag) => {
-    const postsWithTag = allPosts.filter((post) =>
+    const postsWithTag = allPosts.filter(post =>
       post.data.tags.includes(tag),
     );
     return {
@@ -24,7 +24,7 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<Default title={"🏷️ " + tag} description={"Posts including tag " + tag}>
+<Default title={`🏷️ ${tag}`} description={`Posts including tag ${tag}`}>
   <p>Posts including tag <span class="tag">{tag}</span></p>
   <BlogpostsGrid posts={posts} />
 </Default>

@@ -10,7 +10,7 @@ const { posts } = Astro.props;
 
 <ul class="grid">
   {
-    posts.map((post) => (
+    posts.map(post => (
       <li class="grid__item">
         <BlogpostCard post={post} />
       </li>

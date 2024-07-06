@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import { UserSquare, Calendar } from "lucide-astro";
+import { Calendar, UserSquare } from "lucide-astro";
 import { Image } from "astro:assets";
 import { Default } from "@/layouts/Default";
 import { Tags } from "@/components/Tags";
@@ -22,7 +22,7 @@ const {
 } = Astro.props.frontmatter;
 ---
 
-<Default title={"📖 " + title} description={description} image={image}>
+<Default title={`📖 ${title}`} description={description} image={image}>
   <div class="metadata">
     <div class="metadata__author">
       <UserSquare class="metadata__icon" size={24} />
