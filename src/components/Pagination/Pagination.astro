@@ -1,0 +1,59 @@
+---
+import { ChevronLeft, ChevronRight } from "lucide-astro";
+
+interface Props {
+  pagination: {
+    baseUrl: string;
+    totalPages: number;
+    currentPage: number;
+    lastPage: number;
+  };
+}
+
+const { baseUrl, totalPages, currentPage, lastPage } = Astro.props.pagination;
+
+const nextPage = currentPage + 1;
+const prevPage = currentPage > 2 ? currentPage - 1 : '';
+const pagesLinks = Array.from({ length: totalPages }, (_, index) => index + 1).map(
+    (page, ix) => ({
+      text: ix + 1,
+      href: `${baseUrl}/${page > 1 ? page : ""}`,
+      classList: currentPage === page ? "pagination__link--active" : "",
+    }),
+);
+---
+
+<style lang="scss">
+  @use "./Pagination.scss";
+</style>
+
+<nav aria-label="Blog pages" class="pagination">
+   {currentPage > 1 && (
+        <a class="pagination__link pagination__arrow" href={`${baseUrl}/${prevPage}`}>
+          <ChevronLeft size={24} />
+          Prev
+        </a>
+      )}
+
+      {
+        pagesLinks.map(page => (
+          <a
+            class={`pagination__link ${page.classList}`}
+            href={page.href}
+          >
+            {page.text}
+          </a>
+        ),
+        )
+      }
+
+      {currentPage < lastPage && (
+        <a
+          class="pagination__link pagination__arrow"
+          href={`${baseUrl}/${nextPage}`}
+        >
+            Next
+            <ChevronRight size={24} />
+        </a>
+      )}
+</nav>

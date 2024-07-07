@@ -1,0 +1,38 @@
+---
+import { type CollectionEntry } from "astro:content";
+import { type Page } from "astro";
+import { getCollection } from "astro:content";
+import { Pagination } from "@/components/Pagination";
+import { Default } from "@/layouts/Default";
+import { Tags } from "@/components/Tags";
+import { BlogpostsGrid } from "@/components/BlogpostsGrid";
+
+const pageTitle = "📑 Blog posts";
+const description = "Here is all the blog posts I've ever made";
+
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
+  const blogEntries = await getCollection("blog");
+  return paginate(blogEntries, {
+    pageSize: 4,
+  });
+}
+
+interface Props {
+  page: Page<CollectionEntry<"blog">>;
+}
+const { page } = Astro.props;
+
+const postsOnPage = page.data;
+const pagination = {
+  currentPage: page.currentPage,
+  lastPage: page.lastPage,
+  totalPages: Math.ceil(page.total / page.size),
+  baseUrl: "/blog/posts",
+};
+---
+
+<Default title={pageTitle} description={description}>
+  <Tags />
+  <BlogpostsGrid posts={postsOnPage} />
+  <Pagination pagination={pagination} />
+</Default>

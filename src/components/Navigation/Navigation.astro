@@ -41,7 +41,7 @@ const menu = [
   const triangle = document.querySelector("[data-triangle]");
 
   triangle.addEventListener("click", () => {
-    const deg = parseInt(triangle.getAttribute("data-deg"));
+    const deg = Number.parseInt(triangle.getAttribute("data-deg"));
 
     const newDeg = (!Number.isNaN(deg) ? deg : 0) + 60;
     triangle.style.transform = `rotate(${newDeg}deg)`;

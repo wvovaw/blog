@@ -1,0 +1,24 @@
+@use "@/shared/assets/styles/themes" as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+
+  &__link {
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 0.1em 0.4em;
+
+    &--active {
+      color: $primary;
+      font-weight: 700;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+  }
+}
