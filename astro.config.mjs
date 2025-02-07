@@ -2,8 +2,8 @@ import { URL, fileURLToPath } from "node:url";
 import { defineConfig, passthroughImageService } from "astro/config";
 import remarkCodeTitles from "remark-code-titles";
 import remarkObsidianCallout from "remark-obsidian-callout";
-
 import sitemap from "@astrojs/sitemap";
+import vue from "@astrojs/vue";
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,22 +17,24 @@ export default defineConfig({
       },
     },
     remarkPlugins: [remarkCodeTitles, remarkObsidianCallout],
-    rehypePlugins: [
-      "rehype-slug",
-      ["rehype-autolink-headings", { behavior: "prepend" }],
-      ["rehype-toc", { headings: ["h1", "h2", "h3"], placeholder: "TOC" }],
-    ],
+    rehypePlugins: ["rehype-slug", ["rehype-autolink-headings", {
+      behavior: "prepend",
+    }], ["rehype-toc", {
+      headings: ["h1", "h2", "h3"],
+      placeholder: "TOC",
+    }]],
   },
   image: {
     service: passthroughImageService(),
   },
   vite: {
     resolve: {
-      alias: [
-        { find: "@", replacement: fileURLToPath(new URL("./src", import.meta.url)) },
-      ],
+      alias: [{
+        find: "@",
+        replacement: fileURLToPath(new URL("./src", import.meta.url)),
+      }],
     },
   },
   publicDir: "./src/shared/public",
-  integrations: [sitemap({})],
+  integrations: [sitemap({}), vue()],
 });
